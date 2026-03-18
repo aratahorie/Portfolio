@@ -1,6 +1,9 @@
 # WordPress data (migration source, not needed in repo)
 wordpress-data/
 
+# Bio/CV LaTeX source (temporary reference)
+bio/
+
 # Dependencies
 node_modules/
 
