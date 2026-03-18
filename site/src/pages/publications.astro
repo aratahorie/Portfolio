@@ -1,0 +1,326 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { publications, awards, patents } from '../data/publications';
+
+const years = [...new Set(publications.map(p => p.year))].sort((a, b) => b - a);
+const byYear = (year: number) => publications.filter(p => p.year === year);
+
+const journals = publications.filter(p => p.type === 'journal');
+const conferences = publications.filter(p => p.type === 'conference');
+const demos = publications.filter(p => p.type === 'demo');
+---
+
+<Layout title="Publications — Arata Horie">
+  <Header />
+
+  <section class="publications-page">
+    <div class="container">
+      <header class="page-header animate-on-scroll">
+        <span class="section-label">Publications</span>
+        <h1>Research Output</h1>
+        <div class="pub-stats">
+          <span class="stat">{journals.length} Journal Papers</span>
+          <span class="stat-sep">·</span>
+          <span class="stat">{conferences.length} Conference Papers</span>
+          <span class="stat-sep">·</span>
+          <span class="stat">{demos.length} Demos & Posters</span>
+        </div>
+      </header>
+
+      <!-- Publications by Year -->
+      {years.map(year => (
+        <div class="year-section animate-on-scroll">
+          <h2 class="year-heading">{year}</h2>
+          <div class="pub-list">
+            {byYear(year).map(pub => (
+              <div class="pub-item">
+                <div class="pub-type-badge" data-type={pub.type}>
+                  {pub.type === 'journal' ? 'J' : pub.type === 'conference' ? 'C' : 'D'}
+                </div>
+                <div class="pub-content">
+                  <h3 class="pub-title">
+                    {pub.url ? (
+                      <a href={pub.url} target="_blank" rel="noopener">{pub.title}</a>
+                    ) : pub.title}
+                  </h3>
+                  <p class="pub-authors">{pub.authors}</p>
+                  <p class="pub-venue">
+                    {pub.venue}
+                    {pub.doi && <span class="pub-doi"> · DOI: {pub.doi}</span>}
+                  </p>
+                  {pub.award && (
+                    <span class="pub-award">🏆 {pub.award}</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Awards -->
+      <div class="awards-section animate-on-scroll">
+        <h2 class="section-heading">Honors & Awards</h2>
+        <div class="awards-list">
+          {awards.map(award => (
+            <div class="award-item">
+              <span class="award-year">{award.year}</span>
+              <div class="award-content">
+                <span class="award-title">{award.title}</span>
+                <span class="award-venue">{award.venue}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Patents -->
+      <div class="patents-section animate-on-scroll">
+        <h2 class="section-heading">Patents</h2>
+        <div class="patent-list">
+          {patents.map(patent => (
+            <div class="patent-item">
+              <span class="patent-id">{patent.id}</span>
+              <div class="patent-content">
+                <span class="patent-title">{patent.title}</span>
+                <span class="patent-inventors">{patent.inventors}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .publications-page {
+    padding-top: calc(var(--header-height) + var(--space-3xl));
+  }
+
+  .page-header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .section-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    margin-bottom: var(--space-md);
+  }
+
+  .pub-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+
+  .stat-sep {
+    color: var(--border-subtle);
+    font-size: 0.7rem;
+  }
+
+  /* Year sections */
+  .year-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .year-heading {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .pub-item {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+  }
+
+  .pub-type-badge {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+
+  .pub-type-badge[data-type="journal"] {
+    background: var(--accent-dim);
+    color: var(--accent-primary);
+    border: 1px solid var(--border-accent);
+  }
+
+  .pub-type-badge[data-type="conference"] {
+    background: #eef2f7;
+    color: #4a6785;
+    border: 1px solid #d3dde8;
+  }
+
+  .pub-type-badge[data-type="demo"] {
+    background: #f0efe8;
+    color: #7a7560;
+    border: 1px solid #dedbd0;
+  }
+
+  .pub-content {
+    flex: 1;
+  }
+
+  .pub-title {
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.45;
+    margin-bottom: 3px;
+  }
+
+  .pub-title a {
+    color: inherit;
+    transition: color var(--duration-fast);
+  }
+
+  .pub-title a:hover {
+    color: var(--accent-primary);
+  }
+
+  .pub-authors {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 2px;
+  }
+
+  .pub-venue {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+  }
+
+  .pub-doi {
+    font-style: normal;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+  }
+
+  .pub-award {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    margin-top: 4px;
+    padding: 0.2rem 0.55rem;
+    font-size: 0.68rem;
+    font-weight: 500;
+    background: var(--accent-dim);
+    color: var(--accent-primary);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-sm);
+  }
+
+  /* Awards & Patents */
+  .awards-section, .patents-section {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .section-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-xl);
+  }
+
+  .awards-list, .patent-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .award-item, .patent-item {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: baseline;
+  }
+
+  .award-year, .patent-id {
+    flex-shrink: 0;
+    min-width: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .patent-id {
+    min-width: 160px;
+    font-size: 0.7rem;
+    font-family: monospace;
+  }
+
+  .award-content, .patent-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .award-title, .patent-title {
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+
+  .award-venue, .patent-inventors {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .pub-item {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .award-item, .patent-item {
+      flex-direction: column;
+      gap: 2px;
+    }
+    .patent-id {
+      min-width: auto;
+    }
+  }
+</style>

@@ -18,7 +18,7 @@ import Footer from '../components/Footer.astro';
         <div class="about-main">
           <div class="intro animate-on-scroll">
             <p>
-              Arata Horie is a <strong>Project Assistant Professor</strong> at <strong>Keio Media Design</strong>.
+              Arata Horie is a <strong>Project Assistant Professor</strong> at <strong>Keio University Graduate School of Media Design</strong> (Embodied Media).
               He is also the <strong>CTO</strong> of <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a>
             </p>
             <p>
@@ -41,14 +41,108 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <div class="about-section animate-on-scroll">
-            <h2>Background</h2>
-            <p>
-              Since 2017, Arata has been developing novel approaches to haptic feedback,
-              from buttock skin-stretch devices for self-motion perception to room-scale
-              encountered-type haptic systems using wearable robotic arms. His work spans
-              both foundational haptic perception research and applied systems that have been
-              demonstrated at premier venues including SIGGRAPH, CHI, IEEE VR, and World Haptics Conference.
-            </p>
+            <h2>Education</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="tl-period">2019 – 2022</span>
+                <div class="tl-content">
+                  <span class="tl-title">Ph.D. in Engineering</span>
+                  <span class="tl-org">The University of Tokyo</span>
+                  <span class="tl-detail">Dept. of Advanced Interdisciplinary Studies · Advisor: Dr. Masahiko Inami</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="tl-period">2017 – 2019</span>
+                <div class="tl-content">
+                  <span class="tl-title">M.S. in Information Science</span>
+                  <span class="tl-org">Tohoku University</span>
+                  <span class="tl-detail">Dept. of Applied Information Science · Advisor: Dr. Masashi Konyo</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="tl-period">2013 – 2017</span>
+                <div class="tl-content">
+                  <span class="tl-title">B.S. in Mechanical Engineering</span>
+                  <span class="tl-org">Tokyo University of Science</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section animate-on-scroll">
+            <h2>Career</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="tl-period">2023 – Present</span>
+                <div class="tl-content">
+                  <span class="tl-title">Project Assistant Professor</span>
+                  <span class="tl-org">Keio University Graduate School of Media Design, Embodied Media</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="tl-period">2023 – Present</span>
+                <div class="tl-content">
+                  <span class="tl-title">CTO</span>
+                  <span class="tl-org">commissure Inc.</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="tl-period">2022 – 2023</span>
+                <div class="tl-content">
+                  <span class="tl-title">Project Assistant Professor</span>
+                  <span class="tl-org">The University of Tokyo, RCAST, Information Somatics Lab</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="tl-period">2019 – 2022</span>
+                <div class="tl-content">
+                  <span class="tl-title">Research Assistant / JSPS Research Fellow DC2</span>
+                  <span class="tl-org">Information Somatics Lab, The University of Tokyo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section animate-on-scroll">
+            <h2>Grants</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="tl-period">2021 – 2023</span>
+                <div class="tl-content">
+                  <span class="tl-title">ACT-X Hardware in Future for Resilience of Real Space</span>
+                  <span class="tl-org">JST</span>
+                  <span class="tl-detail">Design of Self-other Inseparable Intercorporeality Through Body Surface Deformation Device</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="tl-period">2020 – 2021</span>
+                <div class="tl-content">
+                  <span class="tl-title">JSPS DC2</span>
+                  <span class="tl-org">Japan Society for Promotion of Science</span>
+                  <span class="tl-detail">Self-motion Sensation Induction by the Presentation of Distributed Force</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section animate-on-scroll">
+            <h2>Teaching</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="tl-period">2023 – Present</span>
+                <div class="tl-content">
+                  <span class="tl-title">Guest Lecturer — Otherness and Interaction Technology in Embodied Interaction</span>
+                  <span class="tl-org">Keio University Graduate School of Media Design</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="tl-period">2023 – Present</span>
+                <div class="tl-content">
+                  <span class="tl-title">Lecturer — Digital Interaction Prototyping</span>
+                  <span class="tl-org">Keio University Graduate School of Media Design</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -122,31 +216,21 @@ import Footer from '../components/Footer.astro';
   }
 
   .intro p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.9;
     margin-bottom: var(--space-lg);
     max-width: 640px;
   }
 
-  .intro strong {
-    color: var(--text-primary);
-    font-weight: 600;
-  }
-
-  .intro em {
-    color: var(--accent-primary);
-    font-style: italic;
-  }
+  .intro strong { font-weight: 600; }
+  .intro em { color: var(--accent-primary); font-style: italic; }
 
   .link-accent {
     color: var(--accent-primary);
     border-bottom: 1px solid var(--border-accent);
     transition: opacity var(--duration-fast);
   }
-
-  .link-accent:hover {
-    opacity: 0.7;
-  }
+  .link-accent:hover { opacity: 0.7; }
 
   .about-section {
     margin-top: var(--space-2xl);
@@ -158,13 +242,7 @@ import Footer from '../components/Footer.astro';
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--text-tertiary);
-    margin-bottom: var(--space-md);
-  }
-
-  .about-section p {
-    font-size: 1rem;
-    line-height: 1.9;
-    max-width: 640px;
+    margin-bottom: var(--space-lg);
   }
 
   .keywords {
@@ -182,13 +260,57 @@ import Footer from '../components/Footer.astro';
     color: var(--text-secondary);
     transition: all var(--duration-fast);
   }
-
   .keyword:hover {
     border-color: var(--accent-primary);
     color: var(--accent-primary);
     background: var(--accent-dim);
   }
 
+  /* Timeline */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: baseline;
+  }
+
+  .tl-period {
+    flex-shrink: 0;
+    min-width: 120px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tl-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .tl-title {
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+
+  .tl-org {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+
+  .tl-detail {
+    font-size: 0.78rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+  }
+
+  /* Sidebar */
   .sidebar-card {
     padding: var(--space-xl);
     background: var(--bg-card);
@@ -213,42 +335,21 @@ import Footer from '../components/Footer.astro';
     color: var(--text-tertiary);
   }
 
-  .affiliation {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .af-role {
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--text-primary);
-  }
-
-  .af-org {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-  }
-
+  .affiliation { display: flex; flex-direction: column; }
+  .af-role { font-size: 0.78rem; font-weight: 500; }
+  .af-org { font-size: 0.82rem; color: var(--text-secondary); }
   .contact-link {
     font-size: 0.85rem;
     color: var(--accent-primary);
     transition: opacity var(--duration-fast);
   }
-
-  .contact-link:hover {
-    opacity: 0.7;
-  }
-
-  .rule {
-    margin: var(--space-lg) 0;
-  }
+  .contact-link:hover { opacity: 0.7; }
+  .rule { margin: var(--space-lg) 0; }
 
   @media (max-width: 768px) {
-    .about-layout {
-      grid-template-columns: 1fr;
-    }
-    .sidebar-card {
-      position: static;
-    }
+    .about-layout { grid-template-columns: 1fr; }
+    .sidebar-card { position: static; }
+    .timeline-item { flex-direction: column; gap: 2px; }
+    .tl-period { min-width: auto; }
   }
 </style>

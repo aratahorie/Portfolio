@@ -5,7 +5,7 @@ export const projects = [
     date: "2025.07",
     category: "Research",
     slug: "embodycraft",
-    image: "/images/research/embodycraft.jpg",
+    image: "/images/research/embodycraft.png",
   },
   {
     title: "Boiling Mind",
@@ -13,7 +13,7 @@ export const projects = [
     date: "2025.07",
     category: "Research",
     slug: "boiling-mind",
-    image: "/images/research/boiling-mind.jpg",
+    image: "/images/research/boiling-mind.webp",
   },
   {
     title: "FEEL TECH Wear",
@@ -29,7 +29,7 @@ export const projects = [
     date: "2024.07",
     category: "Research",
     slug: "rotational-skin-stretch",
-    image: "/images/research/rotational-skin-stretch.jpg",
+    image: "/images/research/rotational-skin-stretch.png",
   },
   {
     title: "Force Myography & Skin Stretch",
@@ -37,7 +37,7 @@ export const projects = [
     date: "2023.07",
     category: "Research",
     slug: "fmg-skin-stretch",
-    image: "/images/research/fmg-skin-stretch.jpg",
+    image: "/images/research/fmg-skin-stretch.png",
   },
   {
     title: "Dynamic Derm",
@@ -45,7 +45,7 @@ export const projects = [
     date: "2023.03",
     category: "Research",
     slug: "dynamic-derm",
-    image: "/images/research/dynamic-derm.jpg",
+    image: "/images/research/dynamic-derm.png",
   },
   {
     title: "Seeing is Feeling",
@@ -53,7 +53,7 @@ export const projects = [
     date: "2022.11",
     category: "Research",
     slug: "seeing-is-feeling",
-    image: "/images/research/seeing-is-feeling.jpg",
+    image: "/images/research/seeing-is-feeling.png",
   },
   {
     title: "Chainy",
@@ -77,7 +77,7 @@ export const projects = [
     date: "2021.07",
     category: "Research",
     slug: "2d-phantom",
-    image: "/images/research/2d-phantom.jpg",
+    image: "/images/research/2d-phantom.png",
   },
   {
     title: "EncounteredLimbs",
@@ -93,7 +93,7 @@ export const projects = [
     date: "2020.11",
     category: "Research",
     slug: "dualvib",
-    image: "/images/research/dualvib.jpg",
+    image: "/images/research/dualvib.png",
   },
   {
     title: "TorsionCrowds",
@@ -117,7 +117,7 @@ export const projects = [
     date: "2019.07",
     category: "Research",
     slug: "bssd",
-    image: "/images/research/bssd.jpg",
+    image: "/images/research/bssd.png",
   },
   {
     title: "Dual Vibration Friction",
