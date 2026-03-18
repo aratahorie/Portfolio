@@ -1,0 +1,317 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { projects } from '../../data/projects';
+import { projectContent } from '../../data/projectContent';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const content = projectContent[project.slug];
+const projectIndex = projects.findIndex((p) => p.slug === project.slug);
+const prevProject = projectIndex > 0 ? projects[projectIndex - 1] : null;
+const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null;
+---
+
+<Layout title={`${project.title} — Arata Horie`}>
+  <Header />
+
+  <article class="project-detail">
+    <div class="container">
+      <header class="detail-header">
+        <div class="detail-meta animate-on-scroll">
+          <span class="tag">{project.category}</span>
+          <span class="detail-date">{project.date}</span>
+        </div>
+        <h1 class="detail-title animate-on-scroll">{project.title}</h1>
+        {project.subtitle && (
+          <p class="detail-subtitle animate-on-scroll">{project.subtitle}</p>
+        )}
+        {content?.awards && content.awards.length > 0 && (
+          <div class="awards animate-on-scroll">
+            {content.awards.map((award) => (
+              <span class="award-badge">🏆 {award}</span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <div class="detail-body">
+        <div class="detail-main">
+          {content?.description && (
+            <section class="content-section animate-on-scroll">
+              <p class="description">{content.description}</p>
+            </section>
+          )}
+
+          {content?.descriptionJa && (
+            <section class="content-section animate-on-scroll">
+              <p class="description text-ja">{content.descriptionJa}</p>
+            </section>
+          )}
+
+          {content?.citations && content.citations.length > 0 && (
+            <section class="content-section animate-on-scroll">
+              <h3>Publications</h3>
+              <ul class="citation-list">
+                {content.citations.map((citation) => (
+                  <li class="citation-item">{citation}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </div>
+
+        <aside class="detail-sidebar animate-on-scroll">
+          {content?.collaborators && content.collaborators.length > 0 && (
+            <div class="sidebar-block">
+              <h4>Collaborators</h4>
+              <ul class="sidebar-list">
+                {content.collaborators.map((c) => (
+                  <li>{c}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {content?.links && content.links.length > 0 && (
+            <div class="sidebar-block">
+              <h4>Links</h4>
+              <div class="sidebar-links">
+                {content.links.map((link) => (
+                  <a href={link.url} target="_blank" rel="noopener" class="sidebar-link">
+                    {link.label} ↗
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
+
+      <nav class="project-nav animate-on-scroll">
+        {prevProject && (
+          <a href={`/research/${prevProject.slug}`} class="nav-prev">
+            <span class="nav-label">← Previous</span>
+            <span class="nav-title">{prevProject.title}</span>
+          </a>
+        )}
+        {nextProject && (
+          <a href={`/research/${nextProject.slug}`} class="nav-next">
+            <span class="nav-label">Next →</span>
+            <span class="nav-title">{nextProject.title}</span>
+          </a>
+        )}
+      </nav>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>
+
+<style>
+  .project-detail {
+    padding-top: calc(var(--header-height) + var(--space-3xl));
+  }
+
+  .detail-header {
+    max-width: 800px;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .detail-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .detail-date {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+
+  .detail-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+    margin-bottom: var(--space-md);
+  }
+
+  .detail-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  .awards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+  }
+
+  .award-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--accent-dim);
+    color: var(--accent-primary);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-sm);
+  }
+
+  .detail-body {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .content-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .content-section h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-md);
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .citation-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .citation-item {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--border-subtle);
+  }
+
+  .detail-sidebar {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-xl));
+  }
+
+  .sidebar-block {
+    margin-bottom: var(--space-xl);
+  }
+
+  .sidebar-block h4 {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .sidebar-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sidebar-list li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .sidebar-link {
+    font-size: 0.85rem;
+    color: var(--accent-primary);
+    transition: opacity var(--duration-fast);
+  }
+
+  .sidebar-link:hover {
+    opacity: 0.7;
+  }
+
+  .project-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-xl);
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .nav-prev, .nav-next {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 50%;
+  }
+
+  .nav-next {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .nav-label {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color var(--duration-fast);
+  }
+
+  .nav-prev:hover .nav-title,
+  .nav-next:hover .nav-title {
+    color: var(--accent-primary);
+  }
+
+  @media (max-width: 768px) {
+    .detail-body {
+      grid-template-columns: 1fr;
+    }
+    .detail-sidebar {
+      position: static;
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .project-nav {
+      flex-direction: column;
+    }
+    .nav-prev, .nav-next {
+      max-width: 100%;
+    }
+    .nav-next { text-align: left; }
+  }
+</style>

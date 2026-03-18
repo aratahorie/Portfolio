@@ -1,0 +1,20 @@
+# WordPress data (migration source, not needed in repo)
+wordpress-data/
+
+# Dependencies
+node_modules/
+
+# Build output
+site/dist/
+
+# Environment
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

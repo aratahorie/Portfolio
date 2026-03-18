@@ -1,0 +1,254 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About — Arata Horie">
+  <Header />
+
+  <section class="about-page">
+    <div class="container">
+      <header class="about-header animate-on-scroll">
+        <span class="section-label">About</span>
+        <h1>Arata Horie</h1>
+      </header>
+
+      <div class="about-layout">
+        <div class="about-main">
+          <div class="intro animate-on-scroll">
+            <p>
+              Arata Horie is a <strong>Project Assistant Professor</strong> at <strong>Keio Media Design</strong>.
+              He is also the <strong>CTO</strong> of <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a>
+            </p>
+            <p>
+              His research interest centers on <em>body surface and experience</em> — designing haptic
+              devices and embodied interactions that transform information into tactile sensation,
+              enabling new ways of perceiving and connecting with the world.
+            </p>
+          </div>
+
+          <div class="about-section animate-on-scroll">
+            <h2>Research Interests</h2>
+            <div class="keywords">
+              <span class="keyword">Skin-Stretch Haptics</span>
+              <span class="keyword">Wearable Tactile Display</span>
+              <span class="keyword">Embodied Interaction</span>
+              <span class="keyword">Force Perception</span>
+              <span class="keyword">Phantom Sensation</span>
+              <span class="keyword">Body-Surface Interface</span>
+            </div>
+          </div>
+
+          <div class="about-section animate-on-scroll">
+            <h2>Background</h2>
+            <p>
+              Since 2017, Arata has been developing novel approaches to haptic feedback,
+              from buttock skin-stretch devices for self-motion perception to room-scale
+              encountered-type haptic systems using wearable robotic arms. His work spans
+              both foundational haptic perception research and applied systems that have been
+              demonstrated at premier venues including SIGGRAPH, CHI, IEEE VR, and World Haptics Conference.
+            </p>
+          </div>
+        </div>
+
+        <aside class="about-sidebar animate-on-scroll">
+          <div class="sidebar-card">
+            <div class="sidebar-group">
+              <h4>Affiliations</h4>
+              <div class="affiliation">
+                <span class="af-role">Project Asst. Professor</span>
+                <span class="af-org">Keio Media Design</span>
+              </div>
+              <div class="affiliation">
+                <span class="af-role">CTO</span>
+                <span class="af-org">commissure Inc.</span>
+              </div>
+            </div>
+
+            <hr class="rule" />
+
+            <div class="sidebar-group">
+              <h4>Contact</h4>
+              <a href="https://twitter.com/ArataHorie" target="_blank" rel="noopener" class="contact-link">X (Twitter) ↗</a>
+              <a href="mailto:a.horie@commissure.co.jp" class="contact-link">a.horie@commissure.co.jp</a>
+            </div>
+
+            <hr class="rule" />
+
+            <div class="sidebar-group">
+              <h4>CV</h4>
+              <a href="/cv" class="btn btn-outline" style="width:100%;justify-content:center;">View CV →</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .about-page {
+    padding-top: calc(var(--header-height) + var(--space-3xl));
+  }
+
+  .about-header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .about-header h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    margin-top: var(--space-sm);
+  }
+
+  .section-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-primary);
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .intro p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin-bottom: var(--space-lg);
+    max-width: 640px;
+  }
+
+  .intro strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .intro em {
+    color: var(--accent-primary);
+    font-style: italic;
+  }
+
+  .link-accent {
+    color: var(--accent-primary);
+    border-bottom: 1px solid var(--border-accent);
+    transition: opacity var(--duration-fast);
+  }
+
+  .link-accent:hover {
+    opacity: 0.7;
+  }
+
+  .about-section {
+    margin-top: var(--space-2xl);
+  }
+
+  .about-section h2 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-md);
+  }
+
+  .about-section p {
+    font-size: 1rem;
+    line-height: 1.9;
+    max-width: 640px;
+  }
+
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .keyword {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.78rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    transition: all var(--duration-fast);
+  }
+
+  .keyword:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    background: var(--accent-dim);
+  }
+
+  .sidebar-card {
+    padding: var(--space-xl);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-xl));
+  }
+
+  .sidebar-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .sidebar-group h4 {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-tertiary);
+  }
+
+  .affiliation {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .af-role {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .af-org {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+
+  .contact-link {
+    font-size: 0.85rem;
+    color: var(--accent-primary);
+    transition: opacity var(--duration-fast);
+  }
+
+  .contact-link:hover {
+    opacity: 0.7;
+  }
+
+  .rule {
+    margin: var(--space-lg) 0;
+  }
+
+  @media (max-width: 768px) {
+    .about-layout {
+      grid-template-columns: 1fr;
+    }
+    .sidebar-card {
+      position: static;
+    }
+  }
+</style>

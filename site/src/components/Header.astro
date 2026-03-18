@@ -1,0 +1,189 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/research', label: 'Research' },
+  { href: '/cv', label: 'CV' },
+];
+---
+
+<header class="site-header" id="site-header">
+  <div class="header-inner container">
+    <a href="/" class="logo">
+      <span class="logo-name">Arata Horie</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Main navigation">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class:list={['nav-link', { active: currentPath === href || (href !== '/' && currentPath.startsWith(href)) }]}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <nav class="mobile-nav">
+      {navLinks.map(({ href, label }) => (
+        <a href={href} class="mobile-nav-link">{label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--header-height);
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .site-header.scrolled {
+    background: rgba(251, 250, 248, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .logo-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    transition: color var(--duration-fast);
+    letter-spacing: 0.01em;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--text-primary);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    z-index: 101;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--text-primary);
+    transition: all var(--duration-normal) var(--ease-out);
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(3.75px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    transform: translateY(-3.75px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--duration-slow) var(--ease-out),
+                visibility var(--duration-slow);
+    z-index: 99;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .mobile-nav-link {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    color: var(--text-secondary);
+    transition: color var(--duration-fast);
+  }
+
+  .mobile-nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .nav-desktop { display: none; }
+    .hamburger { display: flex; }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu?.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      hamburger?.classList.remove('open');
+      mobileMenu?.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

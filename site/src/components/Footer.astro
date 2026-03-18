@@ -1,0 +1,74 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <span class="footer-name">Arata Horie</span>
+      <div class="footer-links">
+        <a href="https://twitter.com/ArataHorie" target="_blank" rel="noopener">X</a>
+        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">Scholar</a>
+        <a href="mailto:a.horie@commissure.co.jp">Email</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {currentYear} Arata Horie</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: var(--space-xl) 0;
+    margin-top: var(--space-3xl);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .footer-links a {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    transition: color var(--duration-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--text-primary);
+  }
+
+  .footer-bottom {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+  }
+</style>
