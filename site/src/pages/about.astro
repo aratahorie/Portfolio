@@ -19,12 +19,25 @@ import Footer from '../components/Footer.astro';
           <div class="intro animate-on-scroll">
             <p>
               Arata Horie is a <strong>Project Assistant Professor</strong> at <strong>Keio University Graduate School of Media Design</strong> (Embodied Media).
-              He is also the <strong>CTO</strong> of <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a>
+              He is also the <strong>Representative Director & CTO</strong> of <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a>
             </p>
             <p>
               His research interest centers on <em>body surface and experience</em> — designing haptic
               devices and embodied interactions that transform information into tactile sensation,
               enabling new ways of perceiving and connecting with the world.
+            </p>
+          </div>
+
+          <div class="about-section animate-on-scroll">
+            <h2>Vision</h2>
+            <blockquote class="vision-quote">
+              Understanding Haptics through Designing Experience
+            </blockquote>
+            <p class="vision-text">
+              アカデミアでの基礎研究で触覚のメカニズムを解明し、commissure での社会実装を通じて体験をデザインする——
+              この両輪によって「できる喜びが循環する社会」の実現を目指しています。
+              大学で生まれた知見は commissure の製品（HaptoScala®, SenseFuse, FeelFuse, HaptoAI）として製品化され、
+              社会実装の現場から得られたフィードバックが新たな研究テーマとなる。このサイクルがハプティクスの可能性を拡張します。
             </p>
           </div>
 
@@ -247,6 +260,25 @@ import Footer from '../components/Footer.astro';
     letter-spacing: 0.12em;
     color: var(--text-tertiary);
     margin-bottom: var(--space-lg);
+  }
+
+  .vision-quote {
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    color: var(--accent-primary);
+    border-left: 3px solid var(--accent-primary);
+    padding-left: var(--space-lg);
+    margin: 0 0 var(--space-lg) 0;
+  }
+
+  .vision-text {
+    font-size: 0.92rem;
+    line-height: 1.9;
+    max-width: 640px;
+    color: var(--text-secondary);
   }
 
   .keywords {

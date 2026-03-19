@@ -1,0 +1,242 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contact — Arata Horie" description="ハプティクスに関するご相談・共同研究・技術導入のお問い合わせ">
+  <Header />
+
+  <section class="contact-page">
+    <div class="container">
+      <header class="page-header animate-on-scroll">
+        <span class="section-label">Contact</span>
+        <h1>Let's Talk Haptics</h1>
+        <p class="page-lead">
+          触覚技術に関するあらゆるお問い合わせをお待ちしています。<br/>
+          まずはお気軽にご連絡ください。
+        </p>
+      </header>
+
+      <div class="contact-layout">
+        <div class="contact-main">
+          <div class="category-grid">
+            <div class="category-card animate-on-scroll">
+              <h3>共同研究</h3>
+              <p>ハプティクス、身体性インタラクション、触覚デバイスに関する共同研究のご提案</p>
+            </div>
+            <div class="category-card animate-on-scroll">
+              <h3>技術導入</h3>
+              <p>触覚技術の製品・サービスへの導入、PoC開発、技術コンサルティング</p>
+            </div>
+            <div class="category-card animate-on-scroll">
+              <h3>登壇・取材</h3>
+              <p>カンファレンス登壇、メディア取材、ワークショップ依頼</p>
+            </div>
+            <div class="category-card animate-on-scroll">
+              <h3>その他</h3>
+              <p>その他ハプティクスに関するご質問や、学生・研究者からのご連絡</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="contact-sidebar animate-on-scroll">
+          <div class="contact-card">
+            <div class="contact-group">
+              <h4>Email</h4>
+              <a href="mailto:a.horie@commissure.co.jp" class="contact-link">
+                a.horie@commissure.co.jp
+              </a>
+            </div>
+
+            <hr class="rule" />
+
+            <div class="contact-group">
+              <h4>Social</h4>
+              <div class="social-links">
+                <a href="https://twitter.com/ArataHorie" target="_blank" rel="noopener" class="social-link">
+                  <span>X (Twitter)</span>
+                  <span class="arrow">↗</span>
+                </a>
+                <a href="https://researchmap.jp/aratahorie" target="_blank" rel="noopener" class="social-link">
+                  <span>researchmap</span>
+                  <span class="arrow">↗</span>
+                </a>
+                <a href="https://scholar.google.com/citations?user=ARATA_HORIE" target="_blank" rel="noopener" class="social-link">
+                  <span>Google Scholar</span>
+                  <span class="arrow">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <hr class="rule" />
+
+            <div class="contact-group">
+              <h4>Affiliations</h4>
+              <div class="affiliation">
+                <span class="af-role">Project Asst. Professor</span>
+                <a href="https://www.kmd.keio.ac.jp/" target="_blank" rel="noopener" class="af-org">Keio University Graduate School of Media Design</a>
+              </div>
+              <div class="affiliation">
+                <span class="af-role">Representative Director & CTO</span>
+                <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="af-org">commissure Inc.</a>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .contact-page {
+    padding-top: calc(var(--header-height) + var(--space-3xl));
+  }
+
+  .page-header {
+    max-width: 600px;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .page-header h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    line-height: 1.9;
+  }
+
+  .section-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-primary);
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  /* Category Cards */
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .category-card {
+    padding: var(--space-xl);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    transition: border-color var(--duration-normal), box-shadow var(--duration-normal);
+  }
+
+  .category-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-card);
+  }
+
+  .cat-icon {
+    font-size: 1.3rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .category-card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  .category-card p {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  /* Sidebar */
+  .contact-card {
+    padding: var(--space-xl);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-xl));
+  }
+
+  .contact-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .contact-group h4 {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-tertiary);
+  }
+
+  .contact-link {
+    font-size: 0.9rem;
+    color: var(--accent-primary);
+    word-break: break-all;
+    transition: opacity var(--duration-fast);
+  }
+  .contact-link:hover { opacity: 0.7; }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .social-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--accent-primary);
+    padding: var(--space-xs) 0;
+    transition: opacity var(--duration-fast);
+  }
+  .social-link:hover { opacity: 0.7; }
+  .arrow { font-size: 0.75rem; }
+
+  .affiliation {
+    display: flex;
+    flex-direction: column;
+  }
+  .af-role {
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+  .af-org {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    transition: color var(--duration-fast);
+  }
+  .af-org:hover { color: var(--accent-primary); }
+
+  .rule { margin: var(--space-lg) 0; }
+
+  @media (max-width: 768px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .category-grid { grid-template-columns: 1fr; }
+    .contact-card { position: static; }
+  }
+</style>

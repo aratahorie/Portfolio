@@ -1,0 +1,322 @@
+<!-- Tactile Field — Interactive particle canvas for haptics researcher portfolio -->
+<canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+<style>
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+</style>
+
+<script>
+  const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+
+  // --- Config ---
+  const CONFIG = {
+    // Colors matching the White Editorial design system
+    particleColor: { r: 184, g: 104, b: 48 },   // --accent-primary
+    lineColor: { r: 26, g: 24, b: 21 },          // --text-primary
+    particleAlphaBase: 0.12,
+    particleAlphaHover: 0.5,
+    lineAlphaBase: 0.045,
+    lineAlphaHover: 0.12,
+
+    // Particle sizing
+    particleSizeMin: 1.2,
+    particleSizeMax: 3.5,
+
+    // Behavior
+    connectionDistance: 130,
+    mouseRadius: 180,
+    mouseForce: 0.06,
+    friction: 0.92,
+    driftSpeed: 0.15,
+
+    // Spawn animation
+    spawnDuration: 2200,  // ms for particles to reach position
+
+    // Pulse animation
+    pulseSpeed: 0.0008,
+
+    // Density (particles per 10,000 px²)
+    density: 0.65,
+    maxParticles: 400,
+    mobileMaxParticles: 70,
+  };
+
+  // --- State ---
+  let width = 0;
+  let height = 0;
+  let particles: Particle[] = [];
+  let mouse = { x: -1000, y: -1000, active: false };
+  let startTime = 0;
+  let animFrame = 0;
+  let isMobile = false;
+
+  interface Particle {
+    // Current
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    // Target (final resting position)
+    tx: number;
+    ty: number;
+    // Spawn origin
+    sx: number;
+    sy: number;
+    // Properties
+    size: number;
+    baseAlpha: number;
+    alpha: number;
+    phase: number; // unique pulse offset
+    spawnDelay: number; // stagger delay ms
+    // Wander (smooth floating)
+    wfx: number; // wander frequency X
+    wfy: number; // wander frequency Y
+    wpx: number; // wander phase X
+    wpy: number; // wander phase Y
+    wamp: number; // wander amplitude
+  }
+
+  function resize() {
+    const rect = canvas.parentElement!.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = rect.width;
+    height = rect.height;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function createParticles() {
+    isMobile = window.innerWidth <= 768;
+    const area = width * height;
+    const maxP = isMobile ? CONFIG.mobileMaxParticles : CONFIG.maxParticles;
+    const count = Math.min(Math.floor((area / 10000) * CONFIG.density), maxP);
+    const cx = width / 2;
+    const cy = height / 2;
+
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      const tx = Math.random() * width;
+      const ty = Math.random() * height;
+      // Spawn from center with some radial scatter
+      const angle = Math.random() * Math.PI * 2;
+      const dist = Math.random() * 30;
+      const sx = cx + Math.cos(angle) * dist;
+      const sy = cy + Math.sin(angle) * dist;
+
+      particles.push({
+        x: sx,
+        y: sy,
+        vx: 0,
+        vy: 0,
+        tx,
+        ty,
+        sx,
+        sy,
+        size: CONFIG.particleSizeMin + Math.random() * (CONFIG.particleSizeMax - CONFIG.particleSizeMin),
+        baseAlpha: CONFIG.particleAlphaBase + Math.random() * 0.06,
+        alpha: 0,
+        phase: Math.random() * Math.PI * 2,
+        spawnDelay: Math.random() * 600, // stagger up to 600ms
+        // Each particle gets unique wander frequencies for organic feel
+        wfx: 0.0003 + Math.random() * 0.0006,  // different speeds
+        wfy: 0.0003 + Math.random() * 0.0006,
+        wpx: Math.random() * Math.PI * 2,       // different starting phases
+        wpy: Math.random() * Math.PI * 2,
+        wamp: 25 + Math.random() * 35,           // 25–60px wander radius
+      });
+    }
+  }
+
+  function lerp(a: number, b: number, t: number) {
+    return a + (b - a) * t;
+  }
+
+  function easeOutCubic(t: number) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function draw(now: number) {
+    const elapsed = now - startTime;
+    ctx.clearRect(0, 0, width, height);
+
+    const { particleColor, lineColor, connectionDistance, mouseRadius, mouseForce, friction, pulseSpeed } = CONFIG;
+
+    // --- Update particles ---
+    for (const p of particles) {
+      // Spawn-in animation
+      const spawnElapsed = elapsed - p.spawnDelay;
+      const spawnProgress = Math.max(0, Math.min(1, spawnElapsed / CONFIG.spawnDuration));
+      const eased = easeOutCubic(spawnProgress);
+
+      if (spawnProgress < 1) {
+        // Animating from spawn origin to target
+        p.x = lerp(p.sx, p.tx, eased);
+        p.y = lerp(p.sy, p.ty, eased);
+        p.alpha = eased * p.baseAlpha;
+      } else {
+        // Smooth sinusoidal wandering around target position
+        const wanderX = Math.sin(now * p.wfx + p.wpx) * p.wamp;
+        const wanderY = Math.cos(now * p.wfy + p.wpy) * p.wamp;
+        const goalX = p.tx + wanderX;
+        const goalY = p.ty + wanderY;
+
+        // Smoothly move toward the wandering goal
+        p.vx += (goalX - p.x) * 0.008;
+        p.vy += (goalY - p.y) * 0.008;
+
+        // Mouse interaction
+        if (mouse.active) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouseRadius && dist > 0) {
+            const force = (1 - dist / mouseRadius) * mouseForce;
+            p.vx += (dx / dist) * force;
+            p.vy += (dy / dist) * force;
+          }
+        }
+
+        // Friction
+        p.vx *= friction;
+        p.vy *= friction;
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Pulse
+        const pulse = Math.sin(now * pulseSpeed + p.phase) * 0.3 + 0.7;
+        p.alpha = p.baseAlpha * pulse;
+      }
+    }
+
+    // --- Draw connections ---
+    const connDist2 = connectionDistance * connectionDistance;
+    for (let i = 0; i < particles.length; i++) {
+      const a = particles[i];
+      if (a.alpha < 0.01) continue;
+      for (let j = i + 1; j < particles.length; j++) {
+        const b = particles[j];
+        if (b.alpha < 0.01) continue;
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < connDist2) {
+          const dist = Math.sqrt(d2);
+          let lineAlpha = (1 - dist / connectionDistance) * CONFIG.lineAlphaBase;
+
+          // Brighten near mouse
+          if (mouse.active) {
+            const mx = (a.x + b.x) / 2;
+            const my = (a.y + b.y) / 2;
+            const md = Math.sqrt((mx - mouse.x) ** 2 + (my - mouse.y) ** 2);
+            if (md < mouseRadius) {
+              lineAlpha = lerp(lineAlpha, CONFIG.lineAlphaHover, 1 - md / mouseRadius);
+            }
+          }
+
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(${lineColor.r},${lineColor.g},${lineColor.b},${lineAlpha})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // --- Draw particles ---
+    for (const p of particles) {
+      if (p.alpha < 0.01) continue;
+      let alpha = p.alpha;
+      let size = p.size;
+
+      // Enlarge + brighten near mouse
+      if (mouse.active) {
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouseRadius) {
+          const proximity = 1 - dist / mouseRadius;
+          alpha = lerp(alpha, CONFIG.particleAlphaHover, proximity);
+          size = lerp(size, size * 1.8, proximity);
+        }
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${particleColor.r},${particleColor.g},${particleColor.b},${alpha})`;
+      ctx.fill();
+    }
+
+    animFrame = requestAnimationFrame(draw);
+  }
+
+  // --- Event listeners ---
+  function onPointerMove(e: PointerEvent | TouchEvent) {
+    const rect = canvas.getBoundingClientRect();
+    let clientX: number, clientY: number;
+    if ('touches' in e) {
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+    mouse.x = clientX - rect.left;
+    mouse.y = clientY - rect.top;
+    mouse.active = true;
+  }
+
+  function onPointerLeave() {
+    mouse.active = false;
+  }
+
+  // --- Initialize ---
+  function init() {
+    resize();
+    createParticles();
+    startTime = performance.now();
+
+    // Make canvas interactive
+    canvas.style.pointerEvents = 'auto';
+
+    canvas.addEventListener('pointermove', onPointerMove);
+    canvas.addEventListener('pointerleave', onPointerLeave);
+    if ('ontouchstart' in window) {
+      canvas.addEventListener('touchmove', onPointerMove as any, { passive: true });
+      canvas.addEventListener('touchend', onPointerLeave);
+    }
+
+    animFrame = requestAnimationFrame(draw);
+  }
+
+  // Handle resize
+  let resizeTimeout: ReturnType<typeof setTimeout>;
+  const ro = new ResizeObserver(() => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      cancelAnimationFrame(animFrame);
+      resize();
+      createParticles();
+      startTime = performance.now();
+      animFrame = requestAnimationFrame(draw);
+    }, 150);
+  });
+
+  if (canvas.parentElement) {
+    ro.observe(canvas.parentElement);
+  }
+
+  init();
+</script>

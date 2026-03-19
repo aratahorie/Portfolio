@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import HeroCanvas from '../components/HeroCanvas.astro';
 import { projects } from '../data/projects';
 
 const featured = projects.slice(0, 6);
@@ -12,6 +13,7 @@ const featured = projects.slice(0, 6);
   <Header />
 
   <section class="hero">
+    <HeroCanvas />
     <div class="container hero-layout">
       <div class="hero-text">
         <p class="hero-eyebrow animate-on-scroll">Arata Horie — Haptics Researcher</p>
@@ -76,12 +78,42 @@ const featured = projects.slice(0, 6);
           <span class="number-label">Research Projects</span>
         </div>
         <div class="number-item">
-          <span class="number-value">7+</span>
-          <span class="number-label">Years in Haptics HCI</span>
+          <span class="number-value">70+</span>
+          <span class="number-label">Publications</span>
         </div>
         <div class="number-item">
-          <span class="number-value">2</span>
-          <span class="number-label">Affiliations</span>
+          <span class="number-value">3</span>
+          <span class="number-label">Patents</span>
+        </div>
+        <div class="number-item">
+          <span class="number-value">4</span>
+          <span class="number-label">Products</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dual-axis">
+    <div class="container">
+      <div class="axis-grid">
+        <div class="axis-card animate-on-scroll">
+          <span class="axis-label">Academia</span>
+          <h3>研究で触覚を解明する</h3>
+          <p>
+            慶應義塾大学メディアデザイン研究科で、皮膚せん断ハプティクス、
+            ファントムセンセーション、身体性インタラクションの研究を推進。
+            70本以上の論文発表と17件の受賞実績。
+          </p>
+          <a href="/research" class="read-link">Research →</a>
+        </div>
+        <div class="axis-card animate-on-scroll">
+          <span class="axis-label">Business</span>
+          <h3>事業で触覚を社会実装する</h3>
+          <p>
+            commissure Inc. CTOとして、研究成果を HaptoScala®・SenseFuse・FeelFuse・HaptoAI
+            として製品化。伝統工芸からMR、スポーツまで多分野での社会実装を推進。
+          </p>
+          <a href="/business" class="read-link">Business →</a>
         </div>
       </div>
     </div>
@@ -95,12 +127,12 @@ const featured = projects.slice(0, 6);
       </div>
       <div class="teaser-right">
         <p>
-          From wearable skin-stretch devices to room-scale encountered haptics,
-          I explore how tactile feedback can transform the way we perceive and
-          interact with both physical and digital environments.
+          アカデミアでの基礎研究と、commissureでの社会実装——
+          触覚を「理解する」研究と、体験を「デザインする」事業の両輪で、
+          ハプティクスの可能性を拡張しています。
         </p>
-        <a href="/about" class="read-link">
-          More about me →
+        <a href="/contact" class="read-link">
+          ご相談はこちら →
         </a>
       </div>
     </div>
@@ -116,9 +148,12 @@ const featured = projects.slice(0, 6);
     display: flex;
     align-items: center;
     padding-top: var(--header-height);
+    overflow: hidden;
   }
 
   .hero-layout {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: 1fr 300px;
     gap: var(--space-3xl);
@@ -223,9 +258,75 @@ const featured = projects.slice(0, 6);
 
   .numbers-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     text-align: center;
     gap: var(--space-2xl);
+  }
+
+  .number-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .number-value {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    color: var(--accent-primary);
+    line-height: 1;
+  }
+
+  .number-label {
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Dual Axis */
+  .axis-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .axis-card {
+    padding: var(--space-2xl);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    transition: border-color var(--duration-normal), box-shadow var(--duration-normal);
+  }
+
+  .axis-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-card);
+  }
+
+  .axis-label {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .axis-card h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-md);
+    line-height: 1.4;
+  }
+
+  .axis-card p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
   }
 
   .number-item {
@@ -306,8 +407,9 @@ const featured = projects.slice(0, 6);
     .hero-title { font-size: 2.5rem; }
     .hide-mobile { display: none; }
     .work-grid { grid-template-columns: 1fr; }
+    .axis-grid { grid-template-columns: 1fr; }
     .teaser-layout { grid-template-columns: 1fr; gap: var(--space-xl); }
     .teaser-right { padding-top: 0; }
-    .numbers-grid { grid-template-columns: repeat(3, 1fr); }
+    .numbers-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
