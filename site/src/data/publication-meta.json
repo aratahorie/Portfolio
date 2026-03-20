@@ -1,0 +1,67 @@
+{
+  "higashi2025experience": {
+    "award": "Best Demo Award"
+  },
+  "shen2025s": {
+    "award": "Best Paper Award",
+    "url": "https://dl.acm.org/doi/abs/10.1145/3706598.3713321"
+  },
+  "umehara2024feeltech": {
+    "award": "Official Selection for Laval Virtual",
+    "url": "https://dl.acm.org/doi/abs/10.1145/3641517.3664395"
+  },
+  "umehara2024rotational": {
+    "award": "Best Demo Award"
+  },
+  "horie2023wearable": {
+    "firstAuthor": true,
+    "url": "https://ieeexplore.ieee.org/abstract/document/10224440"
+  },
+  "murata2023dynamic": {
+    "url": "https://dl.acm.org/doi/10.1145/3582700.3582723"
+  },
+  "horie2022seeing": {
+    "type": "demo",
+    "firstAuthor": true,
+    "url": "https://dl.acm.org/doi/10.1145/3550471.3558400"
+  },
+  "ichihashi2022themoblinds": {
+    "type": "demo",
+    "url": "https://dl.acm.org/doi/abs/10.1145/3532721.3535569"
+  },
+  "ichihashi2021high": {
+    "award": "Best Paper Award"
+  },
+  "horie2021Two": {
+    "firstAuthor": true,
+    "award": "Best Paper Nominated",
+    "url": "https://ieeexplore.ieee.org/abstract/document/9517252"
+  },
+  "horie2021encountered": {
+    "firstAuthor": true,
+    "url": "https://ieeexplore.ieee.org/abstract/document/9417696"
+  },
+  "horie2020design": {
+    "firstAuthor": true
+  },
+  "horie2020Torsion": {
+    "type": "demo",
+    "firstAuthor": true,
+    "url": "https://dl.acm.org/doi/abs/10.1145/3388534.3407303"
+  },
+  "tanaka2020Dual": {
+    "url": "https://doi.org/10.1145/3385956.3418964"
+  },
+  "horie2019whole": {
+    "type": "demo",
+    "firstAuthor": true
+  },
+  "horie2018enhancing": {
+    "type": "demo",
+    "firstAuthor": true,
+    "award": "Best Demonstration Award Gold Winner"
+  },
+  "horie2018buttock": {
+    "firstAuthor": true
+  }
+}

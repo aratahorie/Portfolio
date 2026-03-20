@@ -12,25 +12,42 @@ import Footer from '../components/Footer.astro';
       <header class="page-header animate-on-scroll">
         <span class="section-label">Business</span>
         <h1>Research to Reality</h1>
-        <p class="page-lead">
-          アカデミアで培ったハプティクス研究を、<a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a> を通じて社会実装する。<br/>
-          触覚技術の研究開発から体験設計、デバイス提供まで。
-        </p>
+        <div class="page-lead-cols">
+          <p class="page-lead">
+            Deploying haptics research cultivated in academia into society through <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a>
+            From R&D of haptic technology to experience design and device provision.
+          </p>
+          <p class="page-lead-ja">
+            アカデミアで培ったハプティクス研究を <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a> を通じて社会実装する。
+            触覚技術の研究開発から体験設計、デバイス提供まで。
+          </p>
+        </div>
       </header>
 
       <!-- Vision -->
       <div class="vision-section animate-on-scroll">
         <div class="vision-content">
           <h2 class="vision-title">できる喜びが循環する社会へ</h2>
-          <p>
-            身体感覚を<strong>保存・再生・生成</strong>する技術によって、
-            これまで共有が難しかった身体の知をデジタル化し、
-            誰もが活用できる「感覚資産」として社会に届ける。
-          </p>
-          <p>
-            commissure は、触覚技術の研究開発から体験設計、デバイス提供まで、
-            ハプティクスの社会実装をEnd-to-Endで推進しています。
-          </p>
+          <p class="vision-title-en">Toward a Society Where the Joy of Capability Circulates</p>
+          <div class="vision-cols">
+            <div class="vision-col-ja">
+              <p>
+                身体感覚を<strong>保存・再生・生成</strong>する技術によって、
+                これまで共有が難しかった身体の知をデジタル化し、
+                誰もが活用できる「感覚資産」として社会に届ける。
+                commissure は、触覚技術の研究開発から体験設計、デバイス提供まで、
+                ハプティクスの社会実装をEnd-to-Endで推進しています。
+              </p>
+            </div>
+            <div class="vision-col-en">
+              <p>
+                Through technology that <strong>records, reproduces, and generates</strong> bodily sensations,
+                we digitize embodied knowledge that was previously difficult to share, and deliver it
+                to society as "sensory assets" that anyone can utilize.
+                commissure drives end-to-end social implementation of haptics, from R&D to experience design and device provision.
+              </p>
+            </div>
+          </div>
         </div>
         <div class="vision-meta">
           <div class="meta-item">
@@ -40,6 +57,7 @@ import Footer from '../components/Footer.astro';
           <div class="meta-item">
             <span class="meta-label">Role</span>
             <span class="meta-value">Representative Director & CTO</span>
+            <span class="meta-value-ja">代表取締役 CTO</span>
           </div>
           <div class="meta-item">
             <span class="meta-label">Origin</span>
@@ -55,22 +73,34 @@ import Footer from '../components/Footer.astro';
           <div class="product-card animate-on-scroll">
             <h3>HaptoScala®</h3>
             <p class="product-type">Toolkit</p>
-            <p>開発者・デザイナー向けマルチチャネル触覚提示システムツールキット。振動・力覚・温度覚など複合的な触覚フィードバックを容易にプロトタイピング可能。</p>
+            <div class="product-cols">
+              <p class="product-ja">開発者・デザイナー向けマルチチャネル触覚提示システムツールキット。振動・力覚・温度覚など複合的な触覚フィードバックを容易にプロトタイピング可能。</p>
+              <p class="product-en">A multi-channel haptic display toolkit for developers and designers. Enables easy prototyping of complex haptic feedback including vibration, force, and thermal sensations.</p>
+            </div>
           </div>
           <div class="product-card animate-on-scroll">
             <h3>SenseFuse</h3>
             <p class="product-type">Sensing</p>
-            <p>人間の触覚データを高精度に収集するセンサーデバイス。Force Myography（筋変形計測）により、身体の力加減や動きのニュアンスをデジタル化。</p>
+            <div class="product-cols">
+              <p class="product-ja">人間の触覚データを高精度に収集するセンサーデバイス。Force Myography（筋変形計測）により、身体の力加減や動きのニュアンスをデジタル化。</p>
+              <p class="product-en">A sensor device for high-precision collection of human haptic data. Digitizes the nuances of body force and movement through Force Myography (FMG).</p>
+            </div>
           </div>
           <div class="product-card animate-on-scroll">
             <h3>FeelFuse</h3>
             <p class="product-type">Actuation</p>
-            <p>触覚フィードバック提示デバイス。皮膚せん断・振動・温度提示により、バーチャル空間の触感やスキルの追体験を可能にする。</p>
+            <div class="product-cols">
+              <p class="product-ja">触覚フィードバック提示デバイス。皮膚せん断・振動・温度提示により、バーチャル空間の触感やスキルの追体験を可能にする。</p>
+              <p class="product-en">A haptic feedback device. Enables re-experiencing virtual textures and skills through skin-stretch, vibration, and thermal stimulation.</p>
+            </div>
           </div>
           <div class="product-card animate-on-scroll">
             <h3>HaptoAI</h3>
             <p class="product-type">Generation</p>
-            <p>触覚コンテンツ生成AI。テキストや音声から触覚パターンを自動生成し、コンテンツ制作の効率と創造性を飛躍的に向上。</p>
+            <div class="product-cols">
+              <p class="product-ja">触覚コンテンツ生成AI。テキストや音声から触覚パターンを自動生成し、コンテンツ制作の効率と創造性を飛躍的に向上。</p>
+              <p class="product-en">Haptic content generation AI. Automatically generates haptic patterns from text and audio, dramatically improving content creation efficiency and creativity.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -112,34 +142,50 @@ import Footer from '../components/Footer.astro';
           <div class="case-card animate-on-scroll">
             <div class="case-number">01</div>
             <h3>CrafTouch</h3>
-            <p class="case-domain">伝統工芸 × 触覚</p>
-            <p>伝統工芸における職人の技能を触覚データとして記録・再生。暗黙知の継承をデジタル触覚技術で革新する技能伝承プロジェクト。</p>
+            <p class="case-domain">Traditional Craft × Haptics</p>
+            <div class="case-cols">
+              <p class="case-ja">伝統工芸における職人の技能を触覚データとして記録・再生。暗黙知の継承をデジタル触覚技術で革新する技能伝承プロジェクト。</p>
+              <p class="case-en">Recording and reproducing craftspersons' skills as haptic data. A skill transfer project innovating tacit knowledge succession through digital haptic technology.</p>
+            </div>
           </div>
           <div class="case-card animate-on-scroll">
             <div class="case-number">02</div>
             <h3>Haptic MR Experience</h3>
-            <p class="case-domain">MR × 触覚コンテンツ</p>
-            <p>Mixed Reality環境で触覚を伴うインタラクションコンテンツの設計・制作。視聴覚に触覚を加えた没入体験を実現。</p>
+            <p class="case-domain">MR × Haptic Content</p>
+            <div class="case-cols">
+              <p class="case-ja">Mixed Reality環境で触覚を伴うインタラクションコンテンツの設計・制作。視聴覚に触覚を加えた没入体験を実現。</p>
+              <p class="case-en">Design and creation of haptic interaction content in Mixed Reality environments. Realizing immersive experiences by adding haptics to audiovisual media.</p>
+            </div>
           </div>
           <div class="case-card animate-on-scroll">
             <div class="case-number">03</div>
             <h3>Golf Skill Transfer</h3>
-            <p class="case-domain">スポーツ × 触覚</p>
-            <p>プロゴルファーのスイング感覚を触覚データ化し、追体験することでゴルフの習熟効率を向上させるスキルトランスファー。</p>
+            <p class="case-domain">Sports × Haptics</p>
+            <div class="case-cols">
+              <p class="case-ja">プロゴルファーのスイング感覚を触覚データ化し、追体験することでゴルフの習熟効率を向上させるスキルトランスファー。</p>
+              <p class="case-en">Skill transfer that improves golf proficiency by converting professional golfers' swing sensations into haptic data for re-experience.</p>
+            </div>
           </div>
           <div class="case-card animate-on-scroll">
             <div class="case-number">04</div>
             <h3>Haptic Office Chair</h3>
-            <p class="case-domain">オフィス × 触覚</p>
-            <p>触覚提示機能を搭載した椅子型デバイスの共同研究。日常空間にハプティクスを溶け込ませる社会実装の取り組み。</p>
+            <p class="case-domain">Office × Haptics</p>
+            <div class="case-cols">
+              <p class="case-ja">触覚提示機能を搭載した椅子型デバイスの共同研究。日常空間にハプティクスを溶け込ませる社会実装の取り組み。</p>
+              <p class="case-en">Collaborative research on chair-type devices equipped with haptic display. An initiative to seamlessly integrate haptics into everyday spaces.</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- CTA -->
       <div class="cta-section animate-on-scroll">
-        <h2>ハプティクスに関するご相談</h2>
-        <p>研究連携・技術導入・体験設計など、触覚技術に関するあらゆるお問い合わせをお待ちしています。</p>
+        <h2>Consulting on Haptics</h2>
+        <p class="cta-sub-ja">ハプティクスに関するご相談</p>
+        <div class="cta-cols">
+          <p class="cta-en">We welcome all inquiries regarding haptic technology — research collaboration, technology adoption, and experience design.</p>
+          <p class="cta-ja">研究連携・技術導入・体験設計など、触覚技術に関するあらゆるお問い合わせをお待ちしています。</p>
+        </div>
         <a href="/contact" class="btn btn-primary">Contact →</a>
       </div>
     </div>
@@ -166,10 +212,24 @@ import Footer from '../components/Footer.astro';
     margin-bottom: var(--space-lg);
   }
 
+  .page-lead-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
   .page-lead {
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.9;
-    max-width: 600px;
+  }
+
+  .page-lead-ja {
+    font-family: var(--font-ja);
+    font-size: 0.88rem;
+    line-height: 1.9;
+    color: var(--text-tertiary);
+    border-left: 1px solid var(--border-subtle);
+    padding-left: var(--space-lg);
   }
 
   .section-label {
@@ -204,25 +264,36 @@ import Footer from '../components/Footer.astro';
     font-size: 1.6rem;
     font-weight: 300;
     letter-spacing: -0.02em;
-    margin-bottom: var(--space-lg);
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 4px;
+    font-family: var(--font-ja);
   }
 
-  .vision-sub {
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+  .vision-title-en {
+    font-family: var(--font-en);
+    font-size: 0.88rem;
     color: var(--text-tertiary);
-    margin-top: 4px;
+    font-style: italic;
+    margin-bottom: var(--space-lg);
   }
 
-  .vision-content p {
-    font-size: 0.95rem;
+  .vision-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .vision-col-ja p {
+    font-family: var(--font-ja);
+    font-size: 0.88rem;
     line-height: 1.9;
-    margin-bottom: var(--space-md);
-    max-width: 560px;
+    color: var(--text-secondary);
+  }
+
+  .vision-col-en p {
+    font-family: var(--font-en);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--text-tertiary);
   }
 
   .vision-meta {
@@ -249,6 +320,12 @@ import Footer from '../components/Footer.astro';
   .meta-value {
     font-size: 0.9rem;
     font-weight: 500;
+  }
+
+  .meta-value-ja {
+    font-family: var(--font-ja);
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
   }
 
   /* Products */
@@ -281,11 +358,6 @@ import Footer from '../components/Footer.astro';
     box-shadow: var(--shadow-card);
   }
 
-  .product-icon {
-    font-size: 1.5rem;
-    margin-bottom: var(--space-md);
-  }
-
   .product-card h3 {
     font-size: 1.1rem;
     font-weight: 600;
@@ -302,10 +374,26 @@ import Footer from '../components/Footer.astro';
     margin-bottom: var(--space-md);
   }
 
-  .product-card p:last-child {
-    font-size: 0.85rem;
+  .product-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .product-ja {
+    font-family: var(--font-ja);
+    font-size: 0.82rem;
     line-height: 1.8;
     color: var(--text-secondary);
+  }
+
+  .product-en {
+    font-family: var(--font-en);
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--text-tertiary);
+    border-left: 1px solid var(--border-subtle);
+    padding-left: var(--space-md);
   }
 
   /* Flow */
@@ -345,8 +433,9 @@ import Footer from '../components/Footer.astro';
   }
 
   .flow-desc {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--text-tertiary);
+    font-family: var(--font-ja);
   }
 
   .flow-arrow {
@@ -395,10 +484,26 @@ import Footer from '../components/Footer.astro';
     margin-bottom: var(--space-md);
   }
 
-  .case-card p:last-child {
-    font-size: 0.85rem;
+  .case-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .case-ja {
+    font-family: var(--font-ja);
+    font-size: 0.82rem;
     line-height: 1.8;
     color: var(--text-secondary);
+  }
+
+  .case-en {
+    font-family: var(--font-en);
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--text-tertiary);
+    border-left: 1px solid var(--border-subtle);
+    padding-left: var(--space-md);
   }
 
   /* CTA */
@@ -412,21 +517,45 @@ import Footer from '../components/Footer.astro';
     font-size: 1.6rem;
     font-weight: 300;
     letter-spacing: -0.03em;
-    margin-bottom: var(--space-md);
+    margin-bottom: 4px;
   }
 
-  .cta-section p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
+  .cta-sub-ja {
+    font-family: var(--font-ja);
+    font-size: 0.88rem;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .cta-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    text-align: left;
+    max-width: 640px;
+    margin: 0 auto var(--space-xl);
+  }
+
+  .cta-en {
+    font-size: 0.88rem;
     line-height: 1.8;
-    margin-bottom: var(--space-xl);
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
+    color: var(--text-secondary);
+  }
+
+  .cta-ja {
+    font-family: var(--font-ja);
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: var(--text-tertiary);
+    border-left: 1px solid var(--border-subtle);
+    padding-left: var(--space-md);
   }
 
   @media (max-width: 768px) {
+    .page-lead-cols { grid-template-columns: 1fr; }
+    .page-lead-ja { border-left: none; padding-left: 0; border-top: 1px solid var(--border-subtle); padding-top: var(--space-sm); }
     .vision-section { grid-template-columns: 1fr; }
+    .vision-cols { grid-template-columns: 1fr; }
     .vision-meta {
       border-left: none;
       padding-left: 0;
@@ -437,12 +566,14 @@ import Footer from '../components/Footer.astro';
       gap: var(--space-xl);
     }
     .products-grid { grid-template-columns: 1fr; }
+    .product-cols { grid-template-columns: 1fr; }
+    .product-en { border-left: none; padding-left: 0; border-top: 1px solid var(--border-subtle); padding-top: var(--space-xs); }
     .cases-grid { grid-template-columns: 1fr; }
-    .flow-diagram {
-      flex-direction: column;
-    }
-    .flow-arrow {
-      transform: rotate(90deg);
-    }
+    .case-cols { grid-template-columns: 1fr; }
+    .case-en { border-left: none; padding-left: 0; border-top: 1px solid var(--border-subtle); padding-top: var(--space-xs); }
+    .cta-cols { grid-template-columns: 1fr; }
+    .cta-ja { border-left: none; padding-left: 0; border-top: 1px solid var(--border-subtle); padding-top: var(--space-xs); }
+    .flow-diagram { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
   }
 </style>

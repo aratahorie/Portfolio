@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Contact — Arata Horie" description="ハプティクスに関するご相談・共同研究・技術導入のお問い合わせ">
+<Layout title="Contact — Arata Horie" description="Inquiries about haptics — collaborative research, technology adoption, and more.">
   <Header />
 
   <section class="contact-page">
@@ -12,30 +12,48 @@ import Footer from '../components/Footer.astro';
       <header class="page-header animate-on-scroll">
         <span class="section-label">Contact</span>
         <h1>Let's Talk Haptics</h1>
-        <p class="page-lead">
-          触覚技術に関するあらゆるお問い合わせをお待ちしています。<br/>
-          まずはお気軽にご連絡ください。
-        </p>
+        <div class="page-lead-cols">
+          <p class="page-lead">
+            We welcome all inquiries regarding haptic technology.
+            Feel free to reach out.
+          </p>
+          <p class="page-lead-ja">
+            触覚技術に関するあらゆるお問い合わせをお待ちしています。
+            まずはお気軽にご連絡ください。
+          </p>
+        </div>
       </header>
 
       <div class="contact-layout">
         <div class="contact-main">
           <div class="category-grid">
             <div class="category-card animate-on-scroll">
-              <h3>共同研究</h3>
-              <p>ハプティクス、身体性インタラクション、触覚デバイスに関する共同研究のご提案</p>
+              <h3>Collaborative Research<span class="h3-ja"> / 共同研究</span></h3>
+              <div class="card-cols">
+                <p>Proposals for collaborative research on haptics, embodied interaction, and tactile devices.</p>
+                <p class="card-ja">ハプティクス、身体性インタラクション、触覚デバイスに関する共同研究のご提案</p>
+              </div>
             </div>
             <div class="category-card animate-on-scroll">
-              <h3>技術導入</h3>
-              <p>触覚技術の製品・サービスへの導入、PoC開発、技術コンサルティング</p>
+              <h3>Technology Adoption<span class="h3-ja"> / 技術導入</span></h3>
+              <div class="card-cols">
+                <p>Haptic technology integration into products and services, PoC development, and consulting.</p>
+                <p class="card-ja">触覚技術の製品・サービスへの導入、PoC開発、技術コンサルティング</p>
+              </div>
             </div>
             <div class="category-card animate-on-scroll">
-              <h3>登壇・取材</h3>
-              <p>カンファレンス登壇、メディア取材、ワークショップ依頼</p>
+              <h3>Speaking & Media<span class="h3-ja"> / 登壇・取材</span></h3>
+              <div class="card-cols">
+                <p>Conference talks, media interviews, and workshop requests.</p>
+                <p class="card-ja">カンファレンス登壇、メディア取材、ワークショップ依頼</p>
+              </div>
             </div>
             <div class="category-card animate-on-scroll">
-              <h3>その他</h3>
-              <p>その他ハプティクスに関するご質問や、学生・研究者からのご連絡</p>
+              <h3>Other<span class="h3-ja"> / その他</span></h3>
+              <div class="card-cols">
+                <p>General questions about haptics, inquiries from students and researchers.</p>
+                <p class="card-ja">ハプティクスに関するご質問や、学生・研究者からのご連絡</p>
+              </div>
             </div>
           </div>
         </div>
@@ -72,9 +90,9 @@ import Footer from '../components/Footer.astro';
             <hr class="rule" />
 
             <div class="contact-group">
-              <h4>Affiliations</h4>
+              <h4>Affiliations<span class="h4-ja"> / 所属</span></h4>
               <div class="affiliation">
-                <span class="af-role">Project Asst. Professor</span>
+                <span class="af-role">Project Asst. Professor<span class="af-ja"> / 特任助教</span></span>
                 <a href="https://www.kmd.keio.ac.jp/" target="_blank" rel="noopener" class="af-org">Keio University Graduate School of Media Design</a>
               </div>
               <div class="affiliation">
@@ -97,7 +115,7 @@ import Footer from '../components/Footer.astro';
   }
 
   .page-header {
-    max-width: 600px;
+    max-width: 720px;
     margin-bottom: var(--space-3xl);
   }
 
@@ -109,9 +127,24 @@ import Footer from '../components/Footer.astro';
     margin-bottom: var(--space-lg);
   }
 
+  .page-lead-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
   .page-lead {
     font-size: 1.05rem;
     line-height: 1.9;
+  }
+
+  .page-lead-ja {
+    font-family: var(--font-ja);
+    font-size: 0.88rem;
+    line-height: 1.9;
+    color: var(--text-tertiary);
+    border-left: 1px solid var(--border-subtle);
+    padding-left: var(--space-lg);
   }
 
   .section-label {
@@ -149,21 +182,32 @@ import Footer from '../components/Footer.astro';
     box-shadow: var(--shadow-card);
   }
 
-  .cat-icon {
-    font-size: 1.3rem;
-    margin-bottom: var(--space-md);
-  }
-
   .category-card h3 {
     font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
   }
 
-  .category-card p {
+  .h3-ja {
+    font-family: var(--font-ja);
+    font-size: 0.82em;
+    font-weight: 400;
+    color: var(--text-tertiary);
+  }
+
+  .card-cols p {
     font-size: 0.82rem;
     line-height: 1.7;
     color: var(--text-secondary);
+  }
+
+  .card-ja {
+    font-family: var(--font-ja);
+    font-size: 0.75rem !important;
+    color: var(--text-tertiary) !important;
+    margin-top: var(--space-sm);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--border-subtle);
   }
 
   /* Sidebar */
@@ -189,6 +233,15 @@ import Footer from '../components/Footer.astro';
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--text-tertiary);
+  }
+
+  .h4-ja {
+    font-family: var(--font-ja);
+    font-size: 0.9em;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
   }
 
   .contact-link {
@@ -225,6 +278,12 @@ import Footer from '../components/Footer.astro';
     font-size: 0.78rem;
     font-weight: 500;
   }
+  .af-ja {
+    font-family: var(--font-ja);
+    font-size: 0.85em;
+    color: var(--text-tertiary);
+    font-weight: 400;
+  }
   .af-org {
     font-size: 0.82rem;
     color: var(--text-secondary);
@@ -235,6 +294,8 @@ import Footer from '../components/Footer.astro';
   .rule { margin: var(--space-lg) 0; }
 
   @media (max-width: 768px) {
+    .page-lead-cols { grid-template-columns: 1fr; }
+    .page-lead-ja { border-left: none; padding-left: 0; border-top: 1px solid var(--border-subtle); padding-top: var(--space-sm); }
     .contact-layout { grid-template-columns: 1fr; }
     .category-grid { grid-template-columns: 1fr; }
     .contact-card { position: static; }

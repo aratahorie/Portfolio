@@ -11,20 +11,27 @@ import Footer from '../components/Footer.astro';
     <div class="container">
       <header class="about-header animate-on-scroll">
         <span class="section-label">About</span>
-        <h1>Arata Horie</h1>
+        <h1>Arata Horie<span class="name-ja"> / 堀江 新</span></h1>
       </header>
 
       <div class="about-layout">
         <div class="about-main">
+          <!-- Introduction: EN block then JA block, separated by border -->
           <div class="intro animate-on-scroll">
             <p>
-              Arata Horie is a <strong>Project Assistant Professor</strong> at <strong>Keio University Graduate School of Media Design</strong> (Embodied Media).
-              He is also the <strong>Representative Director & CTO</strong> of <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a>
-            </p>
-            <p>
+              Arata Horie is a <strong>Project Assistant Professor</strong> at <strong>Keio University Graduate School of Media Design</strong> (Embodied Media),
+              and the <strong>Representative Director & CTO</strong> of <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a>
               His research interest centers on <em>body surface and experience</em> — designing haptic
               devices and embodied interactions that transform information into tactile sensation,
               enabling new ways of perceiving and connecting with the world.
+            </p>
+          </div>
+          <div class="intro-ja animate-on-scroll">
+            <p>
+              慶應義塾大学大学院メディアデザイン研究科（Embodied Media）特任助教。
+              <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a> 代表取締役 CTO。
+              研究テーマは<em>体表面と体験</em>——情報を触覚に変換するハプティックデバイスと
+              身体性インタラクションを設計し、世界を知覚しつながる新しい方法を追求している。
             </p>
           </div>
 
@@ -32,13 +39,27 @@ import Footer from '../components/Footer.astro';
             <h2>Vision</h2>
             <blockquote class="vision-quote">
               Understanding Haptics through Designing Experience
+              <span class="vision-quote-ja">体験のデザインを通じて触覚を理解する</span>
             </blockquote>
-            <p class="vision-text">
-              アカデミアでの基礎研究で触覚のメカニズムを解明し、commissure での社会実装を通じて体験をデザインする——
-              この両輪によって「できる喜びが循環する社会」の実現を目指しています。
-              大学で生まれた知見は commissure の製品（HaptoScala®, SenseFuse, FeelFuse, HaptoAI）として製品化され、
-              社会実装の現場から得られたフィードバックが新たな研究テーマとなる。このサイクルがハプティクスの可能性を拡張します。
-            </p>
+            <div class="vision-body">
+              <div class="vision-ja">
+                <p>
+                  アカデミアでの基礎研究で触覚のメカニズムを解明し、commissure での社会実装を通じて体験をデザインする——
+                  この両輪によって「できる喜びが循環する社会」の実現を目指しています。
+                  大学で生まれた知見は commissure の製品（HaptoScala®, SenseFuse, FeelFuse, HaptoAI）として製品化され、
+                  社会実装の現場から得られたフィードバックが新たな研究テーマとなる。このサイクルがハプティクスの可能性を拡張します。
+                </p>
+              </div>
+              <div class="vision-en">
+                <p>
+                  Elucidating haptic mechanisms through fundamental research in academia, and designing
+                  experiences through social implementation at commissure — through these dual engines, we aim to
+                  realize a society where "the joy of capability circulates." Insights from the university are
+                  productized as commissure products (HaptoScala®, SenseFuse, FeelFuse, HaptoAI), and feedback
+                  from real-world deployment becomes new research themes.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div class="about-section animate-on-scroll">
@@ -53,106 +74,172 @@ import Footer from '../components/Footer.astro';
             </div>
           </div>
 
+          <!-- Education: two-column EN | JA per entry -->
           <div class="about-section animate-on-scroll">
-            <h2>Education</h2>
+            <h2>Education<span class="h2-ja"> / 学歴</span></h2>
             <div class="timeline">
               <div class="timeline-item">
                 <span class="tl-period">2019 – 2022</span>
-                <div class="tl-content">
-                  <span class="tl-title">Ph.D. in Engineering</span>
-                  <span class="tl-org">The University of Tokyo</span>
-                  <span class="tl-detail">Dept. of Advanced Interdisciplinary Studies · Advisor: Dr. Masahiko Inami</span>
+                <div class="tl-cols">
+                  <div class="tl-en">
+                    <span class="tl-title">Ph.D. in Engineering</span>
+                    <span class="tl-org">The University of Tokyo</span>
+                    <span class="tl-detail">Dept. of Advanced Interdisciplinary Studies<br/>Advisor: Dr. Masahiko Inami</span>
+                  </div>
+                  <div class="tl-ja">
+                    <span class="tl-title">博士（工学）</span>
+                    <span class="tl-org">東京大学</span>
+                    <span class="tl-detail">先端学際工学専攻<br/>指導教員: 稲見 昌彦</span>
+                  </div>
                 </div>
               </div>
               <div class="timeline-item">
                 <span class="tl-period">2017 – 2019</span>
-                <div class="tl-content">
-                  <span class="tl-title">M.S. in Information Science</span>
-                  <span class="tl-org">Tohoku University</span>
-                  <span class="tl-detail">Dept. of Applied Information Science · Advisor: Dr. Masashi Konyo</span>
+                <div class="tl-cols">
+                  <div class="tl-en">
+                    <span class="tl-title">M.S. in Information Science</span>
+                    <span class="tl-org">Tohoku University</span>
+                    <span class="tl-detail">Dept. of Applied Information Science<br/>Advisor: Dr. Masashi Konyo</span>
+                  </div>
+                  <div class="tl-ja">
+                    <span class="tl-title">修士（情報科学）</span>
+                    <span class="tl-org">東北大学</span>
+                    <span class="tl-detail">応用情報科学専攻<br/>指導教員: 昆陽 雅司</span>
+                  </div>
                 </div>
               </div>
               <div class="timeline-item">
                 <span class="tl-period">2013 – 2017</span>
-                <div class="tl-content">
-                  <span class="tl-title">B.S. in Mechanical Engineering</span>
-                  <span class="tl-org">Tokyo University of Science</span>
+                <div class="tl-cols">
+                  <div class="tl-en">
+                    <span class="tl-title">B.S. in Mechanical Engineering</span>
+                    <span class="tl-org">Tokyo University of Science</span>
+                  </div>
+                  <div class="tl-ja">
+                    <span class="tl-title">学士（工学）</span>
+                    <span class="tl-org">東京理科大学</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Career: two-column -->
           <div class="about-section animate-on-scroll">
-            <h2>Career</h2>
+            <h2>Career<span class="h2-ja"> / 職歴</span></h2>
             <div class="timeline">
               <div class="timeline-item">
                 <span class="tl-period">2023 – Present</span>
-                <div class="tl-content">
-                  <span class="tl-title">Project Assistant Professor</span>
-                  <span class="tl-org">Keio University Graduate School of Media Design, Embodied Media</span>
+                <div class="tl-cols">
+                  <div class="tl-en">
+                    <span class="tl-title">Project Assistant Professor</span>
+                    <span class="tl-org">Keio University Graduate School of Media Design</span>
+                  </div>
+                  <div class="tl-ja">
+                    <span class="tl-title">特任助教</span>
+                    <span class="tl-org">慶應義塾大学大学院メディアデザイン研究科</span>
+                  </div>
                 </div>
               </div>
               <div class="timeline-item">
                 <span class="tl-period">2023 – Present</span>
-                <div class="tl-content">
-                  <span class="tl-title">CTO</span>
-                  <span class="tl-org">commissure Inc.</span>
+                <div class="tl-cols">
+                  <div class="tl-en">
+                    <span class="tl-title">Representative Director & CTO</span>
+                    <span class="tl-org">commissure Inc.</span>
+                  </div>
+                  <div class="tl-ja">
+                    <span class="tl-title">代表取締役 CTO</span>
+                    <span class="tl-org">commissure Inc.</span>
+                  </div>
                 </div>
               </div>
               <div class="timeline-item">
                 <span class="tl-period">2022 – 2023</span>
-                <div class="tl-content">
-                  <span class="tl-title">Project Assistant Professor</span>
-                  <span class="tl-org">The University of Tokyo, RCAST, Information Somatics Lab</span>
+                <div class="tl-cols">
+                  <div class="tl-en">
+                    <span class="tl-title">Project Assistant Professor</span>
+                    <span class="tl-org">The University of Tokyo, RCAST</span>
+                    <span class="tl-detail">Information Somatics Lab</span>
+                  </div>
+                  <div class="tl-ja">
+                    <span class="tl-title">特任助教</span>
+                    <span class="tl-org">東京大学 先端科学技術研究センター</span>
+                    <span class="tl-detail">身体情報学分野</span>
+                  </div>
                 </div>
               </div>
               <div class="timeline-item">
                 <span class="tl-period">2019 – 2022</span>
-                <div class="tl-content">
-                  <span class="tl-title">Research Assistant / JSPS Research Fellow DC2</span>
-                  <span class="tl-org">Information Somatics Lab, The University of Tokyo</span>
+                <div class="tl-cols">
+                  <div class="tl-en">
+                    <span class="tl-title">Research Assistant / JSPS DC2</span>
+                    <span class="tl-org">The University of Tokyo</span>
+                    <span class="tl-detail">Information Somatics Lab</span>
+                  </div>
+                  <div class="tl-ja">
+                    <span class="tl-title">RA / 日本学術振興会 特別研究員 DC2</span>
+                    <span class="tl-org">東京大学</span>
+                    <span class="tl-detail">身体情報学分野</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Grants: two-column -->
           <div class="about-section animate-on-scroll">
-            <h2>Grants</h2>
+            <h2>Grants<span class="h2-ja"> / 研究費</span></h2>
             <div class="timeline">
               <div class="timeline-item">
                 <span class="tl-period">2021 – 2023</span>
-                <div class="tl-content">
-                  <span class="tl-title">ACT-X Hardware in Future for Resilience of Real Space</span>
-                  <span class="tl-org">JST</span>
-                  <span class="tl-detail">Design of Self-other Inseparable Intercorporeality Through Body Surface Deformation Device</span>
+                <div class="tl-cols">
+                  <div class="tl-en">
+                    <span class="tl-title">ACT-X</span>
+                    <span class="tl-org">JST</span>
+                    <span class="tl-detail">Design of Self-other Inseparable Intercorporeality Through Body Surface Deformation Device</span>
+                  </div>
+                  <div class="tl-ja">
+                    <span class="tl-title">ACT-X</span>
+                    <span class="tl-org">科学技術振興機構</span>
+                    <span class="tl-detail">体表面変形デバイスによる自他不可分な間身体性の設計</span>
+                  </div>
                 </div>
               </div>
               <div class="timeline-item">
                 <span class="tl-period">2020 – 2021</span>
-                <div class="tl-content">
-                  <span class="tl-title">JSPS DC2</span>
-                  <span class="tl-org">Japan Society for Promotion of Science</span>
-                  <span class="tl-detail">Self-motion Sensation Induction by the Presentation of Distributed Force</span>
+                <div class="tl-cols">
+                  <div class="tl-en">
+                    <span class="tl-title">JSPS DC2</span>
+                    <span class="tl-org">Japan Society for Promotion of Science</span>
+                    <span class="tl-detail">Self-motion Sensation Induction by the Presentation of Distributed Force</span>
+                  </div>
+                  <div class="tl-ja">
+                    <span class="tl-title">特別研究員 DC2</span>
+                    <span class="tl-org">日本学術振興会</span>
+                    <span class="tl-detail">分布力覚提示による自己運動感覚の誘発</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Teaching -->
           <div class="about-section animate-on-scroll">
-            <h2>Teaching</h2>
+            <h2>Teaching<span class="h2-ja"> / 教育</span></h2>
             <div class="timeline">
               <div class="timeline-item">
                 <span class="tl-period">2023 – Present</span>
-                <div class="tl-content">
-                  <span class="tl-title">Guest Lecturer — Otherness and Interaction Technology in Embodied Interaction</span>
-                  <span class="tl-org">Keio University Graduate School of Media Design</span>
+                <div class="tl-content-simple">
+                  <span class="tl-title">Otherness and Interaction Technology in Embodied Interaction</span>
+                  <span class="tl-detail">Guest Lecturer · Keio University Graduate School of Media Design</span>
                 </div>
               </div>
               <div class="timeline-item">
                 <span class="tl-period">2023 – Present</span>
-                <div class="tl-content">
-                  <span class="tl-title">Lecturer — Digital Interaction Prototyping</span>
-                  <span class="tl-org">Keio University Graduate School of Media Design</span>
+                <div class="tl-content-simple">
+                  <span class="tl-title">Digital Interaction Prototyping</span>
+                  <span class="tl-detail">Lecturer · Keio University Graduate School of Media Design</span>
                 </div>
               </div>
             </div>
@@ -166,13 +253,13 @@ import Footer from '../components/Footer.astro';
             </div>
 
             <div class="sidebar-group">
-              <h4>Affiliations</h4>
+              <h4>Affiliations<span class="h4-ja"> / 所属</span></h4>
               <div class="affiliation">
-                <span class="af-role">Project Asst. Professor</span>
+                <span class="af-role">Project Asst. Professor<span class="af-ja"> / 特任助教</span></span>
                 <span class="af-org">Keio Media Design</span>
               </div>
               <div class="affiliation">
-                <span class="af-role">CTO</span>
+                <span class="af-role">Representative Director & CTO</span>
                 <span class="af-org">commissure Inc.</span>
               </div>
             </div>
@@ -216,6 +303,13 @@ import Footer from '../components/Footer.astro';
     margin-top: var(--space-sm);
   }
 
+  .name-ja {
+    font-family: var(--font-ja);
+    font-size: 0.5em;
+    color: var(--text-tertiary);
+    font-weight: 300;
+  }
+
   .section-label {
     display: block;
     font-size: 0.65rem;
@@ -232,15 +326,29 @@ import Footer from '../components/Footer.astro';
     align-items: start;
   }
 
+  /* Intro */
   .intro p {
     font-size: 1.05rem;
     line-height: 1.9;
+    max-width: 640px;
+  }
+
+  .intro-ja {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border-subtle);
     margin-bottom: var(--space-lg);
+  }
+
+  .intro-ja p {
+    font-family: var(--font-ja);
+    font-size: 0.88rem;
+    line-height: 1.9;
+    color: var(--text-tertiary);
     max-width: 640px;
   }
 
   .intro strong { font-weight: 600; }
-  .intro em { color: var(--accent-primary); font-style: italic; }
+  .intro em, .intro-ja em { color: var(--accent-primary); font-style: italic; }
 
   .link-accent {
     color: var(--accent-primary);
@@ -262,6 +370,16 @@ import Footer from '../components/Footer.astro';
     margin-bottom: var(--space-lg);
   }
 
+  .h2-ja {
+    font-family: var(--font-ja);
+    font-size: 0.9em;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+  }
+
+  /* Vision */
   .vision-quote {
     font-size: 1.4rem;
     font-weight: 300;
@@ -274,13 +392,36 @@ import Footer from '../components/Footer.astro';
     margin: 0 0 var(--space-lg) 0;
   }
 
-  .vision-text {
-    font-size: 0.92rem;
+  .vision-quote-ja {
+    display: block;
+    font-family: var(--font-ja);
+    font-size: 0.6em;
+    color: var(--text-tertiary);
+    font-style: normal;
+    margin-top: var(--space-sm);
+  }
+
+  .vision-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .vision-ja p {
+    font-family: var(--font-ja);
+    font-size: 0.88rem;
     line-height: 1.9;
-    max-width: 640px;
     color: var(--text-secondary);
   }
 
+  .vision-en p {
+    font-family: var(--font-en);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--text-tertiary);
+  }
+
+  /* Keywords */
   .keywords {
     display: flex;
     flex-wrap: wrap;
@@ -302,36 +443,53 @@ import Footer from '../components/Footer.astro';
     background: var(--accent-dim);
   }
 
-  /* Timeline */
+  /* Timeline — two-column layout */
   .timeline {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: var(--space-xl);
   }
 
   .timeline-item {
-    display: flex;
-    gap: var(--space-lg);
-    align-items: baseline;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: var(--space-md);
+    align-items: start;
   }
 
   .tl-period {
-    flex-shrink: 0;
-    min-width: 120px;
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-tertiary);
     font-variant-numeric: tabular-nums;
+    padding-top: 2px;
   }
 
-  .tl-content {
+  .tl-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .tl-en, .tl-ja {
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
 
+  .tl-ja {
+    border-left: 1px solid var(--border-subtle);
+    padding-left: var(--space-md);
+  }
+
+  .tl-ja .tl-title,
+  .tl-ja .tl-org,
+  .tl-ja .tl-detail {
+    font-family: var(--font-ja);
+  }
+
   .tl-title {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 500;
   }
 
@@ -341,9 +499,16 @@ import Footer from '../components/Footer.astro';
   }
 
   .tl-detail {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     color: var(--text-tertiary);
-    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* Simple timeline for Teaching (no bilingual column needed) */
+  .tl-content-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
   /* Sidebar */
@@ -385,8 +550,23 @@ import Footer from '../components/Footer.astro';
     color: var(--text-tertiary);
   }
 
+  .h4-ja {
+    font-family: var(--font-ja);
+    font-size: 0.9em;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+  }
+
   .affiliation { display: flex; flex-direction: column; }
   .af-role { font-size: 0.78rem; font-weight: 500; }
+  .af-ja {
+    font-family: var(--font-ja);
+    font-size: 0.85em;
+    color: var(--text-tertiary);
+    font-weight: 400;
+  }
   .af-org { font-size: 0.82rem; color: var(--text-secondary); }
   .contact-link {
     font-size: 0.85rem;
@@ -399,7 +579,10 @@ import Footer from '../components/Footer.astro';
   @media (max-width: 768px) {
     .about-layout { grid-template-columns: 1fr; }
     .sidebar-card { position: static; }
-    .timeline-item { flex-direction: column; gap: 2px; }
-    .tl-period { min-width: auto; }
+    .timeline-item { grid-template-columns: 1fr; }
+    .tl-period { margin-bottom: 2px; }
+    .tl-cols { grid-template-columns: 1fr; }
+    .tl-ja { border-left: none; padding-left: 0; border-top: 1px solid var(--border-subtle); padding-top: var(--space-xs); margin-top: var(--space-xs); }
+    .vision-body { grid-template-columns: 1fr; }
   }
 </style>

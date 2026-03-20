@@ -2,36 +2,48 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { projects } from '../../data/projects';
-import { projectContent } from '../../data/projectContent';
+import { getCollection, render } from 'astro:content';
 
-export function getStaticPaths() {
+const allProjects = await getCollection('research');
+// Sort by date descending (newest first)
+allProjects.sort((a, b) => b.data.date.localeCompare(a.data.date));
+
+export async function getStaticPaths() {
+  const projects = await getCollection('research');
   return projects.map((project) => ({
-    params: { slug: project.slug },
+    params: { slug: project.id },
     props: { project },
   }));
 }
 
 const { project } = Astro.props;
-const content = projectContent[project.slug];
-const projectIndex = projects.findIndex((p) => p.slug === project.slug);
-const prevProject = projectIndex > 0 ? projects[projectIndex - 1] : null;
-const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null;
+const { data: content } = project;
+const { Content } = await render(project);
+
+// Parse body for EN/JA split
+const rawBody = project.body || '';
+const jaSplit = rawBody.split('<!-- ja -->');
+const descriptionEn = jaSplit[0].trim();
+const descriptionJa = jaSplit.length > 1 ? jaSplit[1].trim() : '';
+
+const projectIndex = allProjects.findIndex((p) => p.id === project.id);
+const prevProject = projectIndex > 0 ? allProjects[projectIndex - 1] : null;
+const nextProject = projectIndex < allProjects.length - 1 ? allProjects[projectIndex + 1] : null;
 ---
 
-<Layout title={`${project.title} — Arata Horie`}>
+<Layout title={`${content.title} — Arata Horie`}>
   <Header />
 
   <article class="project-detail">
     <div class="container">
       <header class="detail-header">
         <div class="detail-meta animate-on-scroll">
-          <span class="tag">{project.category}</span>
-          <span class="detail-date">{project.date}</span>
+          <span class="tag">{content.category}</span>
+          <span class="detail-date">{content.date}</span>
         </div>
-        <h1 class="detail-title animate-on-scroll">{project.title}</h1>
-        {project.subtitle && (
-          <p class="detail-subtitle animate-on-scroll">{project.subtitle}</p>
+        <h1 class="detail-title animate-on-scroll">{content.title}</h1>
+        {content.subtitle && (
+          <p class="detail-subtitle animate-on-scroll">{content.subtitle}</p>
         )}
         {content?.awards && content.awards.length > 0 && (
           <div class="awards animate-on-scroll">
@@ -42,23 +54,23 @@ const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex +
         )}
       </header>
 
-      {project.image && (
+      {content.image && (
         <div class="hero-image animate-on-scroll">
-          <img src={project.image} alt={project.title} loading="eager" />
+          <img src={content.image} alt={content.title} loading="eager" />
         </div>
       )}
 
       <div class="detail-body">
         <div class="detail-main">
-          {content?.description && (
+          {descriptionEn && (
             <section class="content-section animate-on-scroll">
-              <p class="description">{content.description}</p>
+              <p class="description">{descriptionEn}</p>
             </section>
           )}
 
-          {content?.descriptionJa && (
+          {descriptionJa && (
             <section class="content-section animate-on-scroll">
-              <p class="description text-ja">{content.descriptionJa}</p>
+              <p class="description text-ja">{descriptionJa}</p>
             </section>
           )}
 
@@ -103,15 +115,15 @@ const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex +
 
       <nav class="project-nav animate-on-scroll">
         {prevProject && (
-          <a href={`/research/${prevProject.slug}`} class="nav-prev">
+          <a href={`/research/${prevProject.id}`} class="nav-prev">
             <span class="nav-label">← Previous</span>
-            <span class="nav-title">{prevProject.title}</span>
+            <span class="nav-title">{prevProject.data.title}</span>
           </a>
         )}
         {nextProject && (
-          <a href={`/research/${nextProject.slug}`} class="nav-next">
+          <a href={`/research/${nextProject.id}`} class="nav-next">
             <span class="nav-label">Next →</span>
-            <span class="nav-title">{nextProject.title}</span>
+            <span class="nav-title">{nextProject.data.title}</span>
           </a>
         )}
       </nav>

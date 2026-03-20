@@ -4,8 +4,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import HeroCanvas from '../components/HeroCanvas.astro';
-import { projects } from '../data/projects';
+import { getCollection } from 'astro:content';
 
+const projects = await getCollection('research');
+projects.sort((a, b) => b.data.date.localeCompare(a.data.date));
 const featured = projects.slice(0, 6);
 ---
 
@@ -15,41 +17,55 @@ const featured = projects.slice(0, 6);
   <section class="hero">
     <HeroCanvas />
     <div class="container hero-layout">
-      <div class="hero-text">
-        <p class="hero-eyebrow animate-on-scroll">Arata Horie — Haptics Researcher</p>
-        <h1 class="hero-title animate-on-scroll">
-          Understanding<br/>
-          <em>Haptics</em> through<br/>
-          Designing Experience
-        </h1>
-        <p class="hero-desc animate-on-scroll">
-          Designing body-surface haptic devices and embodied<br class="hide-mobile"/>
-          experiences at the intersection of HCI and perception.
-        </p>
-        <div class="hero-actions animate-on-scroll">
-          <a href="/research" class="btn btn-primary">View Research →</a>
-          <a href="/about" class="btn btn-outline">About</a>
+      <!-- Row 1: Photo + Name/Titles, height-matched -->
+      <div class="hero-identity animate-on-scroll">
+        <div class="hero-photo">
+          <img src="/images/profile.jpg" alt="Arata Horie" loading="eager" />
+        </div>
+        <div class="hero-info">
+          <h1 class="hero-name">
+            Arata Horie<span class="name-ja"> / 堀江 新</span>
+          </h1>
+          <div class="hero-titles">
+            <div class="hero-title-item">
+              <span class="title-role">Project Assistant Professor</span>
+              <span class="title-org">Keio University Graduate School of Media Design<span class="title-ja"> / 慶應義塾大学KMD</span></span>
+            </div>
+            <div class="hero-title-item">
+              <span class="title-role">Representative Director & CTO</span>
+              <span class="title-org">commissure Inc.</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <aside class="hero-aside animate-on-scroll">
-        <div class="aside-block">
-          <span class="aside-label">Position</span>
-          <span class="aside-value">Project Asst. Professor</span>
-          <span class="aside-sub">Keio Media Design</span>
+      <!-- Row 2: Bio + Keywords + Actions -->
+      <div class="hero-details animate-on-scroll">
+        <div class="hero-bio">
+          <p>
+            Designing body-surface haptic devices and embodied
+            experiences at the intersection of HCI and perception.
+          </p>
+          <p class="bio-ja">
+            HCIと知覚の交差点で、身体表面ハプティックデバイスと
+            身体性体験をデザインしています。
+          </p>
         </div>
-        <hr class="rule" />
-        <div class="aside-block">
-          <span class="aside-label">Role</span>
-          <span class="aside-value">CTO</span>
-          <span class="aside-sub">commissure Inc.</span>
+
+        <div class="hero-keywords">
+          <span class="hero-kw">Skin-Stretch Haptics</span>
+          <span class="hero-kw">Wearable Tactile Display</span>
+          <span class="hero-kw">Embodied Interaction</span>
+          <span class="hero-kw">Force Perception</span>
         </div>
-        <hr class="rule" />
-        <div class="aside-block">
-          <span class="aside-label">Focus</span>
-          <span class="aside-value">Body Surface × Experience</span>
+
+        <div class="hero-actions">
+          <a href="/research" class="btn btn-primary">View Research →</a>
+          <a href="/about" class="btn btn-outline">About</a>
+          <a href="/cv" class="btn btn-outline">CV</a>
+          <a href="https://scholar.google.com/citations?user=OFt87kQAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-outline">Google Scholar ↗</a>
         </div>
-      </aside>
+      </div>
     </div>
   </section>
 
@@ -57,11 +73,19 @@ const featured = projects.slice(0, 6);
     <div class="container">
       <div class="section-head animate-on-scroll">
         <span class="section-label">Selected Work</span>
-        <h2>Recent Research</h2>
+        <h2>Recent Research<span class="h2-ja"> / 最近の研究</span></h2>
       </div>
       <div class="work-grid">
         {featured.map((project, i) => (
-          <ProjectCard {...project} index={i} />
+          <ProjectCard
+            title={project.data.title}
+            subtitle={project.data.subtitle}
+            date={project.data.date}
+            category={project.data.category}
+            slug={project.id}
+            image={project.data.image}
+            index={i}
+          />
         ))}
       </div>
       <div class="section-footer animate-on-scroll">
@@ -75,19 +99,19 @@ const featured = projects.slice(0, 6);
       <div class="numbers-grid stagger animate-on-scroll">
         <div class="number-item">
           <span class="number-value">{projects.length}</span>
-          <span class="number-label">Research Projects</span>
+          <span class="number-label">Research Projects<span class="num-ja"> / 研究プロジェクト</span></span>
         </div>
         <div class="number-item">
           <span class="number-value">70+</span>
-          <span class="number-label">Publications</span>
+          <span class="number-label">Publications<span class="num-ja"> / 論文発表</span></span>
         </div>
         <div class="number-item">
           <span class="number-value">3</span>
-          <span class="number-label">Patents</span>
+          <span class="number-label">Patents<span class="num-ja"> / 特許</span></span>
         </div>
         <div class="number-item">
           <span class="number-value">4</span>
-          <span class="number-label">Products</span>
+          <span class="number-label">Products<span class="num-ja"> / プロダクト</span></span>
         </div>
       </div>
     </div>
@@ -99,20 +123,34 @@ const featured = projects.slice(0, 6);
         <div class="axis-card animate-on-scroll">
           <span class="axis-label">Academia</span>
           <h3>研究で触覚を解明する</h3>
-          <p>
-            慶應義塾大学メディアデザイン研究科で、皮膚せん断ハプティクス、
-            ファントムセンセーション、身体性インタラクションの研究を推進。
-            70本以上の論文発表と17件の受賞実績。
-          </p>
+          <p class="axis-sub-en">Understanding haptics through research</p>
+          <div class="axis-body">
+            <p class="axis-ja">
+              慶應義塾大学メディアデザイン研究科で、皮膚せん断ハプティクス、
+              ファントムセンセーション、身体性インタラクションの研究を推進。
+              70本以上の論文発表と17件の受賞実績。
+            </p>
+            <p class="axis-en">
+              Advancing research on skin-stretch haptics, phantom sensation, and embodied
+              interaction at Keio Media Design. 70+ publications and 17 awards.
+            </p>
+          </div>
           <a href="/research" class="read-link">Research →</a>
         </div>
         <div class="axis-card animate-on-scroll">
           <span class="axis-label">Business</span>
           <h3>事業で触覚を社会実装する</h3>
-          <p>
-            commissure Inc. CTOとして、研究成果を HaptoScala®・SenseFuse・FeelFuse・HaptoAI
-            として製品化。伝統工芸からMR、スポーツまで多分野での社会実装を推進。
-          </p>
+          <p class="axis-sub-en">Deploying haptics in society through business</p>
+          <div class="axis-body">
+            <p class="axis-ja">
+              commissure Inc. CTOとして、研究成果を HaptoScala®・SenseFuse・FeelFuse・HaptoAI
+              として製品化。伝統工芸からMR、スポーツまで多分野での社会実装を推進。
+            </p>
+            <p class="axis-en">
+              As CTO of commissure Inc., productizing research into HaptoScala®, SenseFuse, FeelFuse,
+              and HaptoAI. Driving deployment across traditional crafts, MR, and sports.
+            </p>
+          </div>
           <a href="/business" class="read-link">Business →</a>
         </div>
       </div>
@@ -124,16 +162,24 @@ const featured = projects.slice(0, 6);
       <div class="teaser-left">
         <span class="section-label">About</span>
         <h2>Understanding Haptics<br/>through Designing Experience</h2>
+        <p class="teaser-sub-ja">体験のデザインを通じて触覚を理解する</p>
       </div>
       <div class="teaser-right">
-        <p>
-          アカデミアでの基礎研究と、commissureでの社会実装——
-          触覚を「理解する」研究と、体験を「デザインする」事業の両輪で、
-          ハプティクスの可能性を拡張しています。
-        </p>
-        <a href="/contact" class="read-link">
-          ご相談はこちら →
-        </a>
+        <div class="teaser-block-en">
+          <p>
+            Bridging fundamental research in academia and social implementation through commissure —
+            expanding the possibilities of haptics through the dual engines of research that "understands"
+            and business that "designs" experiences.
+          </p>
+        </div>
+        <div class="teaser-block-ja">
+          <p>
+            アカデミアでの基礎研究と、commissure での社会実装——
+            触覚を「理解する」研究と、体験を「デザインする」事業の両輪で、
+            ハプティクスの可能性を拡張しています。
+          </p>
+        </div>
+        <a href="/contact" class="read-link">Contact →</a>
       </div>
     </div>
   </section>
@@ -144,7 +190,6 @@ const featured = projects.slice(0, 6);
 <style>
   .hero {
     position: relative;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: var(--header-height);
@@ -154,76 +199,139 @@ const featured = projects.slice(0, 6);
   .hero-layout {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: var(--space-3xl);
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
     padding-top: var(--space-3xl);
-    padding-bottom: var(--space-3xl);
+    padding-bottom: var(--space-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .hero-eyebrow {
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--accent-primary);
+  /* Row 1: Identity — photo + name/titles side by side */
+  .hero-identity {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .hero-photo {
+    flex-shrink: 0;
+  }
+
+  .hero-photo img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 50%;
+    border: 3px solid var(--border-subtle);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    transition: border-color var(--duration-normal), box-shadow var(--duration-normal);
+  }
+
+  .hero-photo img:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--accent-primary);
+  }
+
+  .hero-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-name {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+  }
+
+  .name-ja {
+    font-family: var(--font-ja);
+    font-size: 0.45em;
+    color: var(--text-tertiary);
+    font-weight: 300;
+  }
+
+  .hero-titles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .hero-title-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title-role {
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+
+  .title-org {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
+
+  .title-ja {
+    font-family: var(--font-ja);
+    font-size: 0.9em;
+    color: var(--text-tertiary);
+  }
+
+  /* Row 2: Details — bio, keywords, actions */
+  .hero-details {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: var(--space-xl);
+  }
+
+  .hero-bio {
     margin-bottom: var(--space-lg);
   }
 
-  .hero-title {
-    margin-bottom: var(--space-xl);
-    line-height: 1.05;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--accent-primary);
-  }
-
-  .hero-desc {
-    font-size: 1.05rem;
+  .hero-bio p {
+    font-size: 0.95rem;
     line-height: 1.8;
-    margin-bottom: var(--space-2xl);
-    max-width: 480px;
+  }
+
+  .hero-bio .bio-ja {
+    font-family: var(--font-ja);
+    font-size: 0.82rem;
+    color: var(--text-tertiary);
+    margin-top: var(--space-xs);
+  }
+
+  .hero-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-kw {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.7rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    transition: all var(--duration-fast);
+  }
+
+  .hero-kw:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    background: var(--accent-dim);
   }
 
   .hero-actions {
     display: flex;
     gap: var(--space-md);
     flex-wrap: wrap;
-  }
-
-  .hero-aside {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    border-left: 1px solid var(--border-subtle);
-    padding-left: var(--space-xl);
-  }
-
-  .aside-block {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .aside-label {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--text-tertiary);
-    margin-bottom: 2px;
-  }
-
-  .aside-value {
-    font-weight: 500;
-    font-size: 0.95rem;
-  }
-
-  .aside-sub {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    margin-top: 1px;
   }
 
   .section-head {
@@ -238,6 +346,13 @@ const featured = projects.slice(0, 6);
     letter-spacing: 0.15em;
     color: var(--accent-primary);
     margin-bottom: var(--space-sm);
+  }
+
+  .h2-ja {
+    font-family: var(--font-ja);
+    font-size: 0.6em;
+    font-weight: 300;
+    color: var(--text-tertiary);
   }
 
   .section-footer {
@@ -285,6 +400,14 @@ const featured = projects.slice(0, 6);
     letter-spacing: 0.08em;
   }
 
+  .num-ja {
+    font-family: var(--font-ja);
+    font-size: 0.9em;
+    text-transform: none;
+    letter-spacing: 0;
+    opacity: 0.7;
+  }
+
   /* Dual Axis */
   .axis-grid {
     display: grid;
@@ -318,37 +441,38 @@ const featured = projects.slice(0, 6);
     font-size: 1.3rem;
     font-weight: 400;
     letter-spacing: -0.02em;
-    margin-bottom: var(--space-md);
+    margin-bottom: 4px;
     line-height: 1.4;
+    font-family: var(--font-ja);
   }
 
-  .axis-card p {
-    font-size: 0.88rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
+  .axis-sub-en {
+    font-family: var(--font-en);
+    font-size: 0.82rem;
+    color: var(--text-tertiary);
+    font-style: italic;
     margin-bottom: var(--space-lg);
   }
 
-  .number-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xs);
+  .axis-body {
+    margin-bottom: var(--space-lg);
   }
 
-  .number-value {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 300;
-    letter-spacing: -0.04em;
-    color: var(--accent-primary);
-    line-height: 1;
+  .axis-ja {
+    font-family: var(--font-ja);
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
-  .number-label {
-    font-size: 0.72rem;
+  .axis-en {
+    font-family: var(--font-en);
+    font-size: 0.82rem;
+    line-height: 1.7;
     color: var(--text-tertiary);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
   }
 
   .teaser-layout {
@@ -363,14 +487,34 @@ const featured = projects.slice(0, 6);
     line-height: 1.3;
   }
 
+  .teaser-sub-ja {
+    font-family: var(--font-ja);
+    font-size: 0.88rem;
+    color: var(--text-tertiary);
+    margin-top: var(--space-sm);
+  }
+
   .teaser-right {
     padding-top: var(--space-2xl);
   }
 
-  .teaser-right p {
+  .teaser-block-en p {
     font-size: 1rem;
     line-height: 1.9;
-    margin-bottom: var(--space-lg);
+  }
+
+  .teaser-block-ja {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .teaser-block-ja p {
+    font-family: var(--font-ja);
+    font-size: 0.88rem;
+    line-height: 1.9;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-md);
   }
 
   .read-link {
@@ -392,19 +536,22 @@ const featured = projects.slice(0, 6);
 
   @media (max-width: 768px) {
     .hero-layout {
-      grid-template-columns: 1fr;
-      gap: var(--space-2xl);
+      text-align: center;
     }
-    .hero-aside {
-      border-left: none;
-      border-top: 1px solid var(--border-subtle);
-      padding-left: 0;
-      padding-top: var(--space-lg);
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: var(--space-xl);
+    .hero-identity {
+      flex-direction: column;
+      gap: var(--space-lg);
     }
-    .hero-title { font-size: 2.5rem; }
+    .hero-photo img {
+      width: 160px;
+      height: 160px;
+    }
+    .hero-info { align-items: center; }
+    .hero-name { font-size: 1.8rem; }
+    .hero-titles { align-items: center; }
+    .hero-title-item { align-items: center; }
+    .hero-keywords { justify-content: center; }
+    .hero-actions { justify-content: center; }
     .hide-mobile { display: none; }
     .work-grid { grid-template-columns: 1fr; }
     .axis-grid { grid-template-columns: 1fr; }

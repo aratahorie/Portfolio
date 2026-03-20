@@ -1,0 +1,272 @@
+[
+  {
+    "key": "emiri2025piano",
+    "type": "conference",
+    "title": "Piano Duo: Haptic Sharing System Supports Two-Piano Practice",
+    "authors": "Yorioka, E., Zhu, Y., Morita, J., Wakisaka, S., Horie, A., Minamizawa, K.",
+    "venue": "2025 IEEE World Haptics Conference (WHC)",
+    "year": 2025
+  },
+  {
+    "key": "higashi2025experience",
+    "type": "demo",
+    "title": "Experience Sharing Box: A Platform for Capturing, Storing, and Playback of Multisensory Memory",
+    "authors": "Higashi, H., Zhu, Y., Brophy, J., Rasa, I., Morita, J., Horie, A., Yoshida, T., Minamizawa, K.",
+    "venue": "Proceedings of the SIGGRAPH Asia 2025 Emerging Technologies",
+    "year": 2025,
+    "award": "Best Demo Award"
+  },
+  {
+    "key": "shen2025s",
+    "type": "conference",
+    "title": "\" It's Like Being On Stage\": Conveying Dancers' Expressiveness Through A Haptic-Installed Contemporary Dance Performance",
+    "authors": "Shen, X., Li, X., Kamiyama, Y., Hynds, D., Barbareschi, G., Lc, R., Wakisaka, S., Horie, A., Minamizawa, K.",
+    "venue": "Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems",
+    "year": 2025,
+    "award": "Best Paper Award",
+    "url": "https://dl.acm.org/doi/abs/10.1145/3706598.3713321"
+  },
+  {
+    "key": "tsujita2024haptoroom",
+    "type": "demo",
+    "title": "HaptoRoom: Using Vibrotactile Floor Interfaces To Enable Reconfigurable Haptic Interaction Onto Any Furniture Surfaces",
+    "authors": "Tsujita, K., Yoshida, T., Kobayashi, K., Horie, A., Hanamitsu, N., Minamizawa, K.",
+    "venue": "ACM SIGGRAPH 2024 Emerging Technologies",
+    "year": 2024
+  },
+  {
+    "key": "umehara2024feeltech",
+    "type": "demo",
+    "title": "FEELTECH Wear: Enhancing Mixed Reality Experience with Wrist to Finger Haptic Attribution",
+    "authors": "Umehara, R., Taguchi, H., Horie, A., Kamiyama, Y., Sakamoto, S., Ishikawa, H., Minamizawa, K.",
+    "venue": "ACM SIGGRAPH 2024 Emerging Technologies",
+    "year": 2024,
+    "award": "Official Selection for Laval Virtual",
+    "url": "https://dl.acm.org/doi/abs/10.1145/3641517.3664395"
+  },
+  {
+    "key": "umehara2024rotational",
+    "type": "conference",
+    "title": "Rotational Skin-Stretch Distribution Creates Directional Force Sensation on the Wrist",
+    "authors": "Umehara, R., Horie, A., Minamizawa, K.",
+    "venue": "International Conference on Human Haptic Sensing and Touch Enabled Computer Applications",
+    "year": 2024,
+    "award": "Best Demo Award"
+  },
+  {
+    "key": "horie2023wearable",
+    "type": "conference",
+    "title": "A Wearable System Integrating Force Myography and Skin Stretch Feedback toward Force Skill Learning",
+    "authors": "Horie, A., Zheng, Y., Inami, M.",
+    "venue": "2023 IEEE World Haptics Conference (WHC)",
+    "year": 2023,
+    "firstAuthor": true,
+    "url": "https://ieeexplore.ieee.org/abstract/document/10224440"
+  },
+  {
+    "key": "murata2023dynamic",
+    "type": "conference",
+    "title": "Dynamic Derm: Body Surface Deformation Display for Real-World Embodied Interactions",
+    "authors": "Murata, R., Horie, A., Inami, M.",
+    "venue": "Proceedings of the Augmented Humans International Conference 2023",
+    "year": 2023,
+    "doi": "10.1145/3582700.3582723",
+    "url": "https://dl.acm.org/doi/10.1145/3582700.3582723"
+  },
+  {
+    "key": "taguchi2023multichannel",
+    "type": "demo",
+    "title": "Multichannel Haptic Communication Platform with Wearable Sensing and Display",
+    "authors": "Taguchi, H., Kamiyama, Y., Kan, K., Ju, Y., Horie, A., Tanaka, Y., Ishikawa, H., Minamizawa, K.",
+    "venue": "SIGGRAPH Asia 2023 Emerging Technologies",
+    "year": 2023
+  },
+  {
+    "key": "uyama2023somatic",
+    "type": "demo",
+    "title": "Somatic Music: Enhancing Musical Experiences through the Performer's Embodiment",
+    "authors": "Uyama, A., Kamiyama, Y., Wakisaka, S., Horie, A., Saito, T., Minamizawa, K.",
+    "venue": "SIGGRAPH Asia 2023 Posters",
+    "year": 2023
+  },
+  {
+    "key": "horie2022seeing",
+    "type": "demo",
+    "title": "Seeing is Feeling: A Novel Haptic Display for Wearer-Observer Mutual Haptic Understanding",
+    "authors": "Horie, A., Murata, R., Kashino, Z., Inami, M.",
+    "venue": "ACM SIGGRAPH Asia 2022 Emerging Technologies",
+    "year": 2022,
+    "doi": "10.1145/3550471.3558400",
+    "firstAuthor": true,
+    "url": "https://dl.acm.org/doi/10.1145/3550471.3558400"
+  },
+  {
+    "key": "ichihashi2022themoblinds",
+    "type": "demo",
+    "title": "ThermoBlinds: Non-Contact, Highly Responsive Thermal Feedback for Thermal Interaction",
+    "authors": "Ichihashi, S., Horie, A., Hirose, M., Kashino, Z., Yoshida, S., Wakisaka, S., Inami, M.",
+    "venue": "ACM SIGGRAPH 2022 Emerging Technologies",
+    "year": 2022,
+    "doi": "10.1145/3532721.3535569",
+    "url": "https://dl.acm.org/doi/abs/10.1145/3532721.3535569"
+  },
+  {
+    "key": "horie2021encountered",
+    "type": "conference",
+    "title": "EncounteredLimbs: A Room-scale Encountered-type Haptic Presentation using Wearable Robotic Arms",
+    "authors": "Horie, A., Saraiji, M. Y., Kashino, Z., Inami, M.",
+    "venue": "2021 IEEE Virtual Reality and 3D User Interfaces (VR)",
+    "year": 2021,
+    "doi": "10.1109/VR50410.2021.00048.",
+    "firstAuthor": true,
+    "url": "https://ieeexplore.ieee.org/abstract/document/9417696"
+  },
+  {
+    "key": "horie2021Two",
+    "type": "conference",
+    "title": "Two-Dimensional Moving Phantom Sensation Created by Rotational Skin Stretch Distribution",
+    "authors": "Horie, A., Kashino, Z., Shimobayashi, H., Inami, M.",
+    "venue": "2021 IEEE World Haptics Conference (WHC)",
+    "year": 2021,
+    "doi": "10.1109/WHC49131.2021.9517252",
+    "firstAuthor": true,
+    "award": "Best Paper Nominated",
+    "url": "https://ieeexplore.ieee.org/abstract/document/9517252"
+  },
+  {
+    "key": "ichihashi2021high",
+    "type": "conference",
+    "title": "High-Speed Non-Contact Thermal Display Using Infrared Rays and Shutter Mechanism",
+    "authors": "Ichihashi, S., Horie, A., Hirose, M., Kashino, Z., Yoshida, S., Inami, M.",
+    "venue": "UbiComp '21",
+    "year": 2021,
+    "doi": "10.1145/3460418.3480160",
+    "url": "https://doi.org/10.1145/3460418.3480160",
+    "award": "Best Paper Award"
+  },
+  {
+    "key": "saito2021transparency",
+    "type": "journal",
+    "title": "Transparency in Human-Machine Mutual Action",
+    "authors": "Saito, H., Horie, A., Maekawa, A., Matsubara, S., Wakisaka, S., Kashino, Z., Kasahara, S., Inami, M.",
+    "venue": "Journal of Robotics and Mechatronics, 33(5), 987--1003",
+    "year": 2021
+  },
+  {
+    "key": "shimobayashi2021",
+    "type": "conference",
+    "title": "Independent Control of Supernumerary Appendages Exploiting Upper Limb Redundancy",
+    "authors": "Shimobayashi, H., Sasaki, T., Horie, A., Arakawa, R., Kashino, Z., Inami, M.",
+    "venue": "Augmented Humans Conference 2021",
+    "year": 2021,
+    "doi": "10.1145/3458709.3458980",
+    "url": "https://doi.org/10.1145/3458709.3458980"
+  },
+  {
+    "key": "horie2020design",
+    "type": "journal",
+    "title": "Designing Distributed-type Haptic Device based on Rotational Skin Stretch",
+    "authors": "Horie, A., Shimobayashi, H., Saito, H., Inami, M.",
+    "venue": "Transactions of the Virtual Reality Society of Japan, 25(4), 402-411",
+    "year": 2020,
+    "doi": "10.18974/tvrsj.25.4_402",
+    "firstAuthor": true
+  },
+  {
+    "key": "horie2020Torsion",
+    "type": "demo",
+    "title": "TorsionCrowds: Multi-Points Twist Stimulation Display for Large Part of the Body",
+    "authors": "Horie, A., Shimobayashi, H., Inami, M.",
+    "venue": "ACM SIGGRAPH 2020 Emerging Technologies",
+    "year": 2020,
+    "doi": "10.1145/3388534.3407303",
+    "url": "https://dl.acm.org/doi/abs/10.1145/3388534.3407303",
+    "firstAuthor": true
+  },
+  {
+    "key": "tanaka2020Dual",
+    "type": "conference",
+    "title": "DualVib: Simulating Haptic Sensation of Dynamic Mass by Combining Pseudo-Force and Texture Feedback",
+    "authors": "Tanaka, Y., Horie, A., Chen, X. '.",
+    "venue": "26th ACM Symposium on Virtual Reality Software and Technology",
+    "year": 2020,
+    "doi": "10.1145/3385956.3418964",
+    "url": "https://doi.org/10.1145/3385956.3418964"
+  },
+  {
+    "key": "horie2019vrsj",
+    "type": "conference",
+    "title": "Basic Study of Rotating Tactors Array Presenting Strain Distribution on Back Skin",
+    "authors": "Horie, A., Inami, M.",
+    "venue": "Annual Conference of the Virtual Reality Society of Japan",
+    "year": 2019
+  },
+  {
+    "key": "horie2019whole",
+    "type": "demo",
+    "title": "Whole-Body Perception of Ground Geometry by Buttock Skin Stretch",
+    "authors": "Horie, A., Konyo, M., Nagano, H., Tadokoro, S.",
+    "venue": "IEEE World Haptics Conference",
+    "year": 2019,
+    "firstAuthor": true
+  },
+  {
+    "key": "horie2018buttock",
+    "type": "conference",
+    "title": "Buttock Skin Stretch: Inducing Shear Force Perception and Acceleration Illusion on Self-motion Perception",
+    "authors": "Horie, A., Nagano, H., Konyo, M., Tadokoro, S.",
+    "venue": "International Conference on Human Haptic Sensing and Touch Enabled Computer Applications",
+    "year": 2018,
+    "firstAuthor": true
+  },
+  {
+    "key": "horie2018enhancing",
+    "type": "demo",
+    "title": "Enhancing Haptic Experience in a Seat with Two-DoF Buttock Skin Stretch",
+    "authors": "Horie, A., Nomura, A., Tadakuma, K., Konyo, M., Nagano, H., Tadokoro, S.",
+    "venue": "International AsiaHaptics conference",
+    "year": 2018,
+    "firstAuthor": true,
+    "award": "Best Demonstration Award Gold Winner"
+  },
+  {
+    "key": "horie2018robomech",
+    "type": "conference",
+    "title": "Induction of Acceleration Sensation of Self-motion by Presenting Shear Force to Buttocks",
+    "authors": "Horie, A., Nagano, H., Konyo, M., Tadokoro, S.",
+    "venue": "Robotics Mechatronics Conference 2018",
+    "year": 2018
+  },
+  {
+    "key": "horie2018SI",
+    "type": "conference",
+    "title": "2-DoF Buttock Skin Stretch for Inducing Acceleration Perseption of Self-motion",
+    "authors": "Horie, A., Nomura, A., Tadakuma, K., Nagano, H., Konyo, M., Tadokoro, S.",
+    "venue": "SICE System Integration",
+    "year": 2018
+  },
+  {
+    "key": "horie2017SI",
+    "type": "conference",
+    "title": "-2nd Report- Sliding Direction and Speed Presentation Combining High Frequency and Asymmetric Vibration",
+    "authors": "Horie, A., Nagano, H., Konyo, M., Tadokoro, S.",
+    "venue": "SICE System Integration",
+    "year": 2017
+  },
+  {
+    "key": "horie2017VRSJ",
+    "type": "conference",
+    "title": "Sliding Direction and Speed Presentation Combining High Frequency and Asymmetric Vibration",
+    "authors": "Horie, A., Nagano, H., Konyo, M., Tadokoro, S.",
+    "venue": "Annual Conference of the Virtual Reality Society of Japan",
+    "year": 2017
+  },
+  {
+    "key": "horie2018VRSJ",
+    "type": "conference",
+    "title": "Presenting Pushing Up Feeling from the Seat by Buttocks Skin Stretch",
+    "authors": "Horie, A., Nagano, H., Konyo, M., Tadokoro, S.",
+    "venue": "Annual Conference of the Virtual Reality Society of Japan",
+    "year": 2017
+  }
+]

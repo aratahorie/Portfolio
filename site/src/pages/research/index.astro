@@ -3,7 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { projects } from '../../data/projects';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('research');
+projects.sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
 <Layout title="Research — Arata Horie">
@@ -17,11 +20,22 @@ import { projects } from '../../data/projects';
         <p class="page-desc">
           {projects.length} research projects on body-surface haptics and embodied experience, 2017–present.
         </p>
+        <p class="page-desc-ja">
+          体表面ハプティクスと身体性体験に関する{projects.length}件の研究プロジェクト、2017年〜現在。
+        </p>
       </header>
 
       <div class="research-grid">
         {projects.map((project, i) => (
-          <ProjectCard {...project} index={i} />
+          <ProjectCard
+            title={project.data.title}
+            subtitle={project.data.subtitle}
+            date={project.data.date}
+            category={project.data.category}
+            slug={project.id}
+            image={project.data.image}
+            index={i}
+          />
         ))}
       </div>
     </div>
@@ -59,6 +73,14 @@ import { projects } from '../../data/projects';
   .page-desc {
     font-size: 0.9rem;
     max-width: 500px;
+  }
+
+  .page-desc-ja {
+    font-family: var(--font-ja);
+    font-size: 0.78rem;
+    max-width: 500px;
+    color: var(--text-tertiary);
+    margin-top: var(--space-xs);
   }
 
   .research-grid {

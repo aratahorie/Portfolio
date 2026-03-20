@@ -32,7 +32,8 @@ import Footer from '../components/Footer.astro';
           ></iframe>
           <div class="cv-fallback">
             <p>PDF viewer may not be available in your browser.</p>
-            <a href="/cv/Arata_Horie.pdf" class="link-accent">Download the CV directly →</a>
+            <p class="fallback-ja">お使いのブラウザではPDFビューアが利用できない場合があります。</p>
+            <a href="/cv/Arata_Horie.pdf" class="link-accent">Download the CV directly / CVをダウンロード →</a>
           </div>
         </div>
       </div>
@@ -98,6 +99,12 @@ import Footer from '../components/Footer.astro';
 
   .cv-fallback p {
     margin-bottom: var(--space-md);
+  }
+
+  .fallback-ja {
+    font-family: var(--font-ja);
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
   }
 
   .link-accent {

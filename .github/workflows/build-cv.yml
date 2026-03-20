@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'bio/**'
+      - 'site/src/data/publication-meta.json'
   workflow_dispatch:
 
 jobs:
@@ -12,6 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Parse BibTeX → JSON
+        run: node scripts/parse-bib.mjs
 
       - name: Install LaTeX
         uses: xu-cheng/latex-action@v3
@@ -23,10 +31,10 @@ jobs:
       - name: Copy PDF to site
         run: cp bio/Resume_for_Frehers.pdf site/public/cv/Arata_Horie.pdf
 
-      - name: Commit updated CV
+      - name: Commit updated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/public/cv/Arata_Horie.pdf
-          git diff --staged --quiet || git commit -m "chore: update CV PDF [automated]"
+          git add site/public/cv/Arata_Horie.pdf site/src/data/publications.json
+          git diff --staged --quiet || git commit -m "chore: update CV PDF and publications data [automated]"
           git push
