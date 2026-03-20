@@ -8,6 +8,9 @@ on:
       - 'site/src/data/publication-meta.json'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-cv:
     runs-on: ubuntu-latest
