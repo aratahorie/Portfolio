@@ -1,19 +1,20 @@
 ---
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/research', label: 'Research' },
-  { href: '/business', label: 'Business' },
-  { href: '/publications', label: 'Publications' },
-  { href: '/contact', label: 'Contact' },
+  { href: `${base}/`, label: 'Home' },
+  { href: `${base}/about`, label: 'About' },
+  { href: `${base}/research`, label: 'Research' },
+  { href: `${base}/business`, label: 'Business' },
+  { href: `${base}/publications`, label: 'Publications' },
+  { href: `${base}/contact`, label: 'Contact' },
 ];
 ---
 
 <header class="site-header" id="site-header">
   <div class="header-inner container">
-    <a href="/" class="logo">
+    <a href={`${base}/`} class="logo">
       <span class="logo-name">Arata Horie</span>
     </a>
 

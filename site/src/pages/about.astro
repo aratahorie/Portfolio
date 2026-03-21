@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="About — Arata Horie">
@@ -249,7 +250,7 @@ import Footer from '../components/Footer.astro';
         <aside class="about-sidebar animate-on-scroll">
           <div class="sidebar-card">
             <div class="profile-photo">
-              <img src="/images/profile.jpg" alt="Arata Horie" loading="eager" />
+              <img src={`${base}/images/profile.jpg`} alt="Arata Horie" loading="eager" />
             </div>
 
             <div class="sidebar-group">
@@ -276,7 +277,7 @@ import Footer from '../components/Footer.astro';
 
             <div class="sidebar-group">
               <h4>CV</h4>
-              <a href="/cv" class="btn btn-outline" style="width:100%;justify-content:center;">View CV →</a>
+              <a href={`${base}/cv`} class="btn btn-outline" style="width:100%;justify-content:center;">View CV →</a>
             </div>
           </div>
         </aside>

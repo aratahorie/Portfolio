@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="CV — Arata Horie">
@@ -16,24 +17,24 @@ import Footer from '../components/Footer.astro';
 
       <div class="cv-content animate-on-scroll">
         <div class="cv-actions">
-          <a href="/cv/Arata_Horie.pdf" target="_blank" class="btn btn-primary" download>
+          <a href={`${base}/cv/Arata_Horie.pdf`} target="_blank" class="btn btn-primary" download>
             Download PDF →
           </a>
-          <a href="/cv/Arata_Horie.pdf" target="_blank" class="btn btn-outline">
+          <a href={`${base}/cv/Arata_Horie.pdf`} target="_blank" class="btn btn-outline">
             Open in Browser ↗
           </a>
         </div>
 
         <div class="cv-embed">
           <iframe
-            src="/cv/Arata_Horie.pdf"
+            src={`${base}/cv/Arata_Horie.pdf`}
             title="Arata Horie CV"
             loading="lazy"
           ></iframe>
           <div class="cv-fallback">
             <p>PDF viewer may not be available in your browser.</p>
             <p class="fallback-ja">お使いのブラウザではPDFビューアが利用できない場合があります。</p>
-            <a href="/cv/Arata_Horie.pdf" class="link-accent">Download the CV directly / CVをダウンロード →</a>
+            <a href={`${base}/cv/Arata_Horie.pdf`} class="link-accent">Download the CV directly / CVをダウンロード →</a>
           </div>
         </div>
       </div>

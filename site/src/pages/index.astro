@@ -9,6 +9,7 @@ import { getCollection } from 'astro:content';
 const projects = await getCollection('research');
 projects.sort((a, b) => b.data.date.localeCompare(a.data.date));
 const featured = projects.slice(0, 6);
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Arata Horie — Haptics & Embodied Experience Researcher">
@@ -20,7 +21,7 @@ const featured = projects.slice(0, 6);
       <!-- Row 1: Photo + Name/Titles, height-matched -->
       <div class="hero-identity animate-on-scroll">
         <div class="hero-photo">
-          <img src="/images/profile.jpg" alt="Arata Horie" loading="eager" />
+          <img src={`${base}/images/profile.jpg`} alt="Arata Horie" loading="eager" />
         </div>
         <div class="hero-info">
           <h1 class="hero-name">
@@ -60,9 +61,9 @@ const featured = projects.slice(0, 6);
         </div>
 
         <div class="hero-actions">
-          <a href="/research" class="btn btn-primary">View Research →</a>
-          <a href="/about" class="btn btn-outline">About</a>
-          <a href="/cv" class="btn btn-outline">CV</a>
+          <a href={`${base}/research`} class="btn btn-primary">View Research →</a>
+          <a href={`${base}/about`} class="btn btn-outline">About</a>
+          <a href={`${base}/cv`} class="btn btn-outline">CV</a>
           <a href="https://scholar.google.com/citations?user=OFt87kQAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-outline">Google Scholar ↗</a>
         </div>
       </div>
@@ -89,7 +90,7 @@ const featured = projects.slice(0, 6);
         ))}
       </div>
       <div class="section-footer animate-on-scroll">
-        <a href="/research" class="btn btn-outline">All {projects.length} Projects →</a>
+        <a href={`${base}/research`} class="btn btn-outline">All {projects.length} Projects →</a>
       </div>
     </div>
   </section>
@@ -135,7 +136,7 @@ const featured = projects.slice(0, 6);
               interaction at Keio Media Design. 70+ publications and 17 awards.
             </p>
           </div>
-          <a href="/research" class="read-link">Research →</a>
+          <a href={`${base}/research`} class="read-link">Research →</a>
         </div>
         <div class="axis-card animate-on-scroll">
           <span class="axis-label">Business</span>
@@ -151,7 +152,7 @@ const featured = projects.slice(0, 6);
               and HaptoAI. Driving deployment across traditional crafts, MR, and sports.
             </p>
           </div>
-          <a href="/business" class="read-link">Business →</a>
+          <a href={`${base}/business`} class="read-link">Business →</a>
         </div>
       </div>
     </div>
@@ -179,7 +180,7 @@ const featured = projects.slice(0, 6);
             ハプティクスの可能性を拡張しています。
           </p>
         </div>
-        <a href="/contact" class="read-link">Contact →</a>
+        <a href={`${base}/contact`} class="read-link">Contact →</a>
       </div>
     </div>
   </section>

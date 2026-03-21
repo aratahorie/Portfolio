@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Business — Arata Horie" description="Haptics technology research, development, and social implementation through commissure Inc.">
@@ -186,7 +187,7 @@ import Footer from '../components/Footer.astro';
           <p class="cta-en">We welcome all inquiries regarding haptic technology — research collaboration, technology adoption, and experience design.</p>
           <p class="cta-ja">研究連携・技術導入・体験設計など、触覚技術に関するあらゆるお問い合わせをお待ちしています。</p>
         </div>
-        <a href="/contact" class="btn btn-primary">Contact →</a>
+        <a href={`${base}/contact`} class="btn btn-primary">Contact →</a>
       </div>
     </div>
   </section>
