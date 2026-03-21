@@ -10,12 +10,13 @@ interface Props {
 }
 
 const { title, subtitle, date, category, slug, image, index = 0 } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
-<a href={`/research/${slug}`} class="project-card" style={`--i: ${index}`}>
+<a href={`${base}/research/${slug}`} class="project-card" style={`--i: ${index}`}>
   <div class="card-image">
     <img
-      src={image}
+      src={`${base}${image}`}
       alt={title}
       loading="lazy"
       onerror="this.style.display='none'"
