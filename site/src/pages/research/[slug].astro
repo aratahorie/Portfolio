@@ -29,6 +29,7 @@ const descriptionJa = jaSplit.length > 1 ? jaSplit[1].trim() : '';
 const projectIndex = allProjects.findIndex((p) => p.id === project.id);
 const prevProject = projectIndex > 0 ? allProjects[projectIndex - 1] : null;
 const nextProject = projectIndex < allProjects.length - 1 ? allProjects[projectIndex + 1] : null;
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title={`${content.title} — Arata Horie`}>
@@ -56,7 +57,7 @@ const nextProject = projectIndex < allProjects.length - 1 ? allProjects[projectI
 
       {content.image && (
         <div class="hero-image animate-on-scroll">
-          <img src={content.image} alt={content.title} loading="eager" />
+          <img src={`${base}${content.image}`} alt={content.title} loading="eager" />
         </div>
       )}
 
@@ -115,13 +116,13 @@ const nextProject = projectIndex < allProjects.length - 1 ? allProjects[projectI
 
       <nav class="project-nav animate-on-scroll">
         {prevProject && (
-          <a href={`/research/${prevProject.id}`} class="nav-prev">
+          <a href={`${base}/research/${prevProject.id}`} class="nav-prev">
             <span class="nav-label">← Previous</span>
             <span class="nav-title">{prevProject.data.title}</span>
           </a>
         )}
         {nextProject && (
-          <a href={`/research/${nextProject.id}`} class="nav-next">
+          <a href={`${base}/research/${nextProject.id}`} class="nav-next">
             <span class="nav-label">Next →</span>
             <span class="nav-title">{nextProject.data.title}</span>
           </a>
