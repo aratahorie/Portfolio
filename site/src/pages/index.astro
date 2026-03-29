@@ -48,7 +48,7 @@ const base = import.meta.env.BASE_URL;
           </p>
           <p class="bio-ja">
             アカデミアとビジネスの両輪で人間と情報技術のより良い関係性の構築に取り組んでいます。
-            身体性の理解を追求し、Human Computer Interaction、触覚技術を中心とした研究開発と社会実装を推進しています。
+            身体性の理解を追求し、Human Computer Interaction、触覚技術（ハプティクス）を中心とした研究開発と社会実装を推進しています。
           </p>
         </div>
 
@@ -73,7 +73,7 @@ const base = import.meta.env.BASE_URL;
     <div class="container">
       <div class="section-head animate-on-scroll">
         <span class="section-label">Selected Work</span>
-        <h2>Recent Research<span class="h2-ja"> / 最近の研究</span></h2>
+        <h2>Recent Research Projects<span class="h2-ja"> / 最近の研究プロジェクト</span></h2>
       </div>
       <div class="work-grid">
         {featured.map((project, i) => (
@@ -94,6 +94,7 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
+  {/* 
   <section class="numbers-section">
     <div class="container">
       <div class="numbers-grid stagger animate-on-scroll">
@@ -115,40 +116,37 @@ const base = import.meta.env.BASE_URL;
         </div>
       </div>
     </div>
-  </section>
+  </section> 
+  */}
 
   <section class="section dual-axis">
     <div class="container">
       <div class="axis-grid">
         <div class="axis-card animate-on-scroll">
           <span class="axis-label">Academia</span>
-          <h3>研究で触覚を解明する</h3>
-          <p class="axis-sub-en">Understanding haptics through research</p>
+          <h3>アカデミアでの学術研究</h3>
+          <p class="axis-sub-en">Academic Research</p>
           <div class="axis-body">
             <p class="axis-ja">
-              慶應義塾大学メディアデザイン研究科で、皮膚せん断ハプティクス、
-              ファントムセンセーション、身体性インタラクションの研究を推進。
-              70本以上の論文発表と17件の受賞実績。
+              慶應義塾大学メディアデザイン研究科にて、触覚提示・触覚センシング等の技術を開発し、様々な現場でプロジェクト化。基礎研究だけでなく、デザインの視点から研究を推進しています。
             </p>
             <p class="axis-en">
-              Advancing research on skin-stretch haptics, phantom sensation, and embodied
-              interaction at Keio Media Design. 70+ publications and 17 awards.
+              At Keio University Graduate School of Media Design, I introduce technologies such as haptic display and haptic sensing to various fields. I conduct research from a design perspective through communication, not only in basic research.
             </p>
           </div>
           <a href={`${base}/research`} class="read-link">Research →</a>
         </div>
         <div class="axis-card animate-on-scroll">
           <span class="axis-label">Business</span>
-          <h3>事業で触覚を社会実装する</h3>
-          <p class="axis-sub-en">Deploying haptics in society through business</p>
+          <h3>ビジネスでの社会実装</h3>
+          <p class="axis-sub-en">Deploy through business</p>
           <div class="axis-body">
             <p class="axis-ja">
-              commissure Inc. CTOとして、研究成果を HaptoScala®・SenseFuse・FeelFuse・HaptoAI
-              として製品化。伝統工芸からMR、スポーツまで多分野での社会実装を推進。
+              commissure Inc. CTOとして、これまで培ってきた触覚に関する知見を元に、FeelFuse®・SenseFuse®・ HaptoScala®・HaptoAI®
+              としてプロダクト化。技術をビジネスにおける価値に展開し、社会実装を推進します。
             </p>
             <p class="axis-en">
-              As CTO of commissure Inc., productizing research into HaptoScala®, SenseFuse, FeelFuse,
-              and HaptoAI. Driving deployment across traditional crafts, MR, and sports.
+              As CTO of commissure Inc., I productize our accumulated knowledge and patents of haptics into FeelFuse®, SenseFuse®, HaptoScala®, and HaptoAI®, driving the social implementation of technology as value in business.
             </p>
           </div>
           <a href={`${base}/business`} class="read-link">Business →</a>
@@ -161,8 +159,8 @@ const base = import.meta.env.BASE_URL;
     <div class="container teaser-layout animate-on-scroll">
       <div class="teaser-left">
         <span class="section-label">About</span>
-        <h2>Understanding Haptics<br/>through Designing Experience</h2>
-        <p class="teaser-sub-ja">体験のデザインを通じて触覚を理解する</p>
+        <h2>Understanding Embodiment<br/>through Designing Experience</h2>
+        <p class="teaser-sub-ja">体験のデザインを通じて身体性を理解する</p>
       </div>
       <div class="teaser-right">
         <div class="teaser-block-en">
@@ -174,9 +172,8 @@ const base = import.meta.env.BASE_URL;
         </div>
         <div class="teaser-block-ja">
           <p>
-            アカデミアでの基礎研究と、commissure での社会実装——
-            触覚を「理解する」研究と、体験を「デザインする」事業の両輪で、
-            ハプティクスの可能性を拡張しています。
+            アカデミアでの研究と、commissureでの社会実装を通じて、
+             身体性の理解を追求し、Human Computer Interaction、触覚技術を中心とした研究開発と社会実装を推進しています。
           </p>
         </div>
         <a href={`${base}/contact`} class="read-link">Contact →</a>
