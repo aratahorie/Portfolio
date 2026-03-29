@@ -48,6 +48,9 @@ const base = import.meta.env.BASE_URL;
           </div>
         </div>
         <div class="vision-meta">
+          <div class="company-logo-wrap">
+            <img src={`${base}/images/commissure-logo.png`} alt="commissure Inc." class="company-logo" />
+          </div>
           <div class="meta-item">
             <span class="meta-label">Founded</span>
             <span class="meta-value">2023.01</span>
@@ -245,6 +248,19 @@ const base = import.meta.env.BASE_URL;
     transition: opacity var(--duration-fast);
   }
   .link-accent:hover { opacity: 0.7; }
+
+  /* Company Logo */
+  .company-logo-wrap {
+    padding-bottom: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .company-logo {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.85;
+  }
 
   /* Vision */
   .vision-section {
