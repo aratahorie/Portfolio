@@ -9,7 +9,7 @@ import { getCollection } from 'astro:content';
 const projects = await getCollection('research');
 projects.sort((a, b) => b.data.date.localeCompare(a.data.date));
 const featured = projects.slice(0, 6);
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 ---
 
 <Layout title="Arata Horie — Haptics & Embodied Experience Researcher">

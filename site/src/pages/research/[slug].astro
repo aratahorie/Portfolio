@@ -29,7 +29,7 @@ const descriptionJa = jaSplit.length > 1 ? jaSplit[1].trim() : '';
 const projectIndex = allProjects.findIndex((p) => p.id === project.id);
 const prevProject = projectIndex > 0 ? allProjects[projectIndex - 1] : null;
 const nextProject = projectIndex < allProjects.length - 1 ? allProjects[projectIndex + 1] : null;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 ---
 
 <Layout title={`${content.title} — Arata Horie`}>
