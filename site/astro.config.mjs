@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://aratahorie.github.io',
-  base: '/Portfolio',
+  site: 'https://aratahorie.com',
+  base: '/',
   output: 'static',
 });
