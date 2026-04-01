@@ -27,7 +27,7 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
           </div>
           <div class="intro-ja animate-on-scroll">
             <p>
-              慶應義塾大学大学院メディアデザイン研究科（Embodied Media）特任講師。
+              慶應義塾大学大学院メディアデザイン研究科（Embodied Media）特任講師（非常勤）。
               <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="link-accent">commissure Inc.</a> 代表取締役 CTO。
               アカデミアとビジネスの両輪で人間と情報技術のより良い関係性の構築に取り組んでいます。 身体性の理解を追求し、Human Computer Interaction、触覚技術を中心とした研究開発と社会実装を推進しています。
             </p>
@@ -142,7 +142,7 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
                     <span class="tl-org">Keio University Graduate School of Media Design</span>
                   </div>
                   <div class="tl-ja">
-                    <span class="tl-title">特任講師</span>
+                    <span class="tl-title">特任講師（非常勤）</span>
                     <span class="tl-org">慶應義塾大学大学院メディアデザイン研究科</span>
                   </div>
                 </div>
@@ -261,12 +261,12 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
             <div class="sidebar-group">
               <h4>Affiliations<span class="h4-ja"> / 所属</span></h4>
               <div class="affiliation">
-                <span class="af-role">Project Sr. Asst. Professor<span class="af-ja"> / 特任講師</span></span>
-                <span class="af-org">Keio Media Design</span>
+                <span class="af-role">Project Senior Assistant Professor / <span class="af-ja">特任講師（非常勤）</span></span>
+                <span class="af-org">Keio University Graduate School of Media Design / <span class="af-ja">慶應義塾大学大学院メディアデザイン研究科</span></span>
               </div>
               <div class="affiliation">
-                <span class="af-role">Founder &amp; CTO</span>
-                <span class="af-org">commissure Inc.</span>
+                <span class="af-role">Founder &amp; CTO / <span class="af-ja">代表取締役CTO</span></span>
+                <span class="af-org">commissure Inc. / <span class="af-ja">株式会社commissure</span></span>
               </div>
             </div>
 
@@ -567,12 +567,9 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
   }
 
   .affiliation { display: flex; flex-direction: column; }
-  .af-role { font-size: 0.78rem; font-weight: 500; }
+  .af-role { font-size: 0.78rem; font-weight: 600; color: var(--text-primary); }
   .af-ja {
     font-family: var(--font-ja);
-    font-size: 0.85em;
-    color: var(--text-tertiary);
-    font-weight: 400;
   }
   .af-org { font-size: 0.82rem; color: var(--text-secondary); }
   .contact-link {

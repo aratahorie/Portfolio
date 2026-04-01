@@ -29,8 +29,8 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
           </h1>
           <div class="hero-titles">
             <div class="hero-title-item">
-              <span class="title-role">Project Senior Assistant Professor / <span class="title-ja">特任講師</span></span>
-              <span class="title-org">Keio University Graduate School of Media Design<span class="title-ja"> / 慶應義塾大学大学院メディアデザイン研究科</span></span>
+              <span class="title-role">Project Senior Assistant Professor / <span class="title-ja">特任講師（非常勤）</span></span>
+              <span class="title-org">Keio University Graduate School of Media Design / <span class="title-ja">慶應義塾大学大学院メディアデザイン研究科</span></span>
             </div>
             <div class="hero-title-item">
               <span class="title-role">Founder & CTO / <span class="title-ja">代表取締役CTO</span></span>
@@ -270,7 +270,8 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
   .title-role {
     font-size: 0.88rem;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-primary);
   }
 
   .title-org {
@@ -280,8 +281,6 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
   .title-ja {
     font-family: var(--font-ja);
-    font-size: 0.9em;
-    color: var(--text-tertiary);
   }
 
   /* Row 2: Details — bio, keywords, actions */
