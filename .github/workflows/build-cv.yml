@@ -27,12 +27,12 @@ jobs:
       - name: Install LaTeX
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: Resume_for_Frehers.tex
+          root_file: aratahorie.tex
           working_directory: bio
           latexmk_use_lualatex: true
 
       - name: Copy PDF to site
-        run: cp bio/Resume_for_Frehers.pdf site/public/cv/Arata_Horie.pdf
+        run: cp bio/aratahorie.pdf site/public/cv/Arata_Horie.pdf
 
       - name: Commit updated files
         run: |
