@@ -30,6 +30,7 @@ const challenge = defineCollection({
     category: z.string().default('Student Challenge'),
     image: z.string().default(''),
     citations: z.array(z.string()).default([]),
+    awards: z.array(z.string()).optional(),
     links: z.array(linkSchema).default([]),
   }),
 });

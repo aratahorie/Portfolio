@@ -14,3 +14,5 @@ links:
 ---
 
 In dance performances, choreography, music and lighting are combined to convey meaning to the audience. However, this communication typically relies on visual and auditory stimuli alone. Through co-design activities with 5 professional contemporary dancers, we crafted an interdisciplinary combination of choreography and haptics. In total, 128 audience members watched one of three live performances while wearing custom-made haptic wristbands. We explore how the introduction of haptics deepens their embodied sensations and helps to create a sense of resonance with the dancers.
+
+<div class="video-embed"><iframe src="https://www.youtube.com/embed/5sgsoEqaGGI" title="Boiling Mind" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>

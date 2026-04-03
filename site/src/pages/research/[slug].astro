@@ -20,11 +20,9 @@ const { project } = Astro.props;
 const { data: content } = project;
 const { Content } = await render(project);
 
-// Parse body for EN/JA split
+// Parse body for EN/JA split — used to detect whether JA content exists
 const rawBody = project.body || '';
-const jaSplit = rawBody.split('<!-- ja -->');
-const descriptionEn = jaSplit[0].trim();
-const descriptionJa = jaSplit.length > 1 ? jaSplit[1].trim() : '';
+const hasJaContent = rawBody.includes('<!-- ja -->');
 
 const projectIndex = allProjects.findIndex((p) => p.id === project.id);
 const prevProject = projectIndex > 0 ? allProjects[projectIndex - 1] : null;
@@ -63,17 +61,9 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
       <div class="detail-body">
         <div class="detail-main">
-          {descriptionEn && (
-            <section class="content-section animate-on-scroll">
-              <p class="description">{descriptionEn}</p>
-            </section>
-          )}
-
-          {descriptionJa && (
-            <section class="content-section animate-on-scroll">
-              <p class="description text-ja">{descriptionJa}</p>
-            </section>
-          )}
+          <section class="content-section rich-content animate-on-scroll">
+            <Content />
+          </section>
 
           {content?.citations && content.citations.length > 0 && (
             <section class="content-section animate-on-scroll">
@@ -224,6 +214,124 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
     letter-spacing: 0.12em;
     color: var(--text-tertiary);
     margin-bottom: var(--space-md);
+  }
+
+  /* Rich markdown content styles */
+  .rich-content :global(p) {
+    font-size: 1rem;
+    line-height: 1.9;
+    max-width: 680px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .rich-content :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .rich-content :global(h2) {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .rich-content :global(h3) {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .rich-content :global(hr) {
+    border: none;
+    height: 1px;
+    background: var(--border-subtle);
+    margin: var(--space-2xl) 0;
+  }
+
+  /* Japanese text section via HTML comment split rendered as separate paragraphs */
+  .rich-content :global(.text-ja),
+  .rich-content :global(p:lang(ja)) {
+    font-family: var(--font-ja);
+  }
+
+  /* Inline images in content */
+  .rich-content :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin: var(--space-xl) 0;
+    border: 1px solid var(--border-subtle);
+  }
+
+  /* YouTube / video embeds */
+  .rich-content :global(.video-embed),
+  .rich-content :global(iframe) {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: var(--radius-md);
+    margin: var(--space-xl) 0;
+  }
+
+  /* Links in content */
+  .rich-content :global(a) {
+    color: var(--accent-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(184, 104, 48, 0.3);
+    transition: text-decoration-color var(--duration-fast);
+  }
+
+  .rich-content :global(a:hover) {
+    text-decoration-color: var(--accent-primary);
+  }
+
+  /* Lists in content */
+  .rich-content :global(ul),
+  .rich-content :global(ol) {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-lg);
+    color: var(--text-secondary);
+  }
+
+  .rich-content :global(li) {
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: var(--space-xs);
+  }
+
+  .rich-content :global(ul) {
+    list-style: disc;
+  }
+
+  .rich-content :global(ol) {
+    list-style: decimal;
+  }
+
+  /* Strong / emphasis */
+  .rich-content :global(strong) {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .rich-content :global(em) {
+    font-style: italic;
+  }
+
+  /* Blockquotes */
+  .rich-content :global(blockquote) {
+    border-left: 3px solid var(--accent-primary);
+    padding-left: var(--space-lg);
+    margin: var(--space-xl) 0;
+    color: var(--text-secondary);
+    font-style: italic;
   }
 
   .description {

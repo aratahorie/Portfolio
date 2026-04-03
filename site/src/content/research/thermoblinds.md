@@ -11,4 +11,6 @@ links:
     url: "https://dl.acm.org/doi/abs/10.1145/3532721.3535569"
 ---
 
-We present ThermoBlinds, a non-contact, highly responsive thermal feedback device for thermal interactions. It provides responsive feedback by rapidly adjusting infrared irradiance with a shutter mechanism. By providing thermal feedback in accordance with the user's gaze, it is possible to create a visual media experience with a high resolution thermal sensation.
+We present ThermoBlinds, a non-contact, highly responsive thermal feedback device for thermal interactions. It provides responsive feedback by rapidly adjusting infrared irradiance with a shutter mechanism. The feedback can be applied according to visual media contents to reproduce thermal experiences.
+
+By providing thermal feedback in accordance with the user's gaze, it is possible to create a visual media experience with a high resolution thermal sensation. Additionally, it supports remote communication by providing thermal feedback based on the other person's gaze.
