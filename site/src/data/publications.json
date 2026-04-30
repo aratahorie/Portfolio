@@ -1,5 +1,21 @@
 [
   {
+    "key": "kotani2026audiohapticdiffusion",
+    "type": "conference",
+    "title": "AudioHapticDiffusion: Synchronized Audio-Haptic Generation via Shared Latent Space",
+    "authors": "Kotani, A., Horie, A.",
+    "venue": "EuroHaptics 2026",
+    "year": 2026
+  },
+  {
+    "key": "kotani2026ders",
+    "type": "conference",
+    "title": "DERS: Distribution of Eccentric Rotational Skin-stretch induce Directional Force Sensation on a Wrist",
+    "authors": "Kotani, A., Shimobayashi, H., Horie, A.",
+    "venue": "EuroHaptics 2026",
+    "year": 2026
+  },
+  {
     "key": "emiri2025piano",
     "type": "conference",
     "title": "Piano Duo: Haptic Sharing System Supports Two-Piano Practice",
