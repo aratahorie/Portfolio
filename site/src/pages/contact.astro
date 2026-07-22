@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { affiliations, email, socialLinks } from '../data/contact';
 const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 ---
 
@@ -63,8 +64,8 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
           <div class="contact-card">
             <div class="contact-group">
               <h4>Email</h4>
-              <a href="mailto:a.horie@commissure.co.jp" class="contact-link">
-                a.horie@commissure.co.jp
+              <a href={`mailto:${email}`} class="contact-link">
+                {email}
               </a>
             </div>
 
@@ -73,18 +74,12 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
             <div class="contact-group">
               <h4>Social</h4>
               <div class="social-links">
-                <a href="https://twitter.com/ArataHorie" target="_blank" rel="noopener" class="social-link">
-                  <span>X (Twitter)</span>
-                  <span class="arrow">↗</span>
-                </a>
-                <a href="https://researchmap.jp/aratahorie" target="_blank" rel="noopener" class="social-link">
-                  <span>researchmap</span>
-                  <span class="arrow">↗</span>
-                </a>
-                <a href="https://scholar.google.com/citations?user=OFt87kQAAAAJ&hl=en" target="_blank" rel="noopener" class="social-link">
-                  <span>Google Scholar</span>
-                  <span class="arrow">↗</span>
-                </a>
+                {socialLinks.map((link) => (
+                  <a href={link.url} target="_blank" rel="noopener" class="social-link">
+                    <span>{link.label}</span>
+                    <span class="arrow">↗</span>
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -92,14 +87,17 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
             <div class="contact-group">
               <h4>Affiliations<span class="h4-ja"> / 所属</span></h4>
-              <div class="affiliation">
-                <span class="af-role">Project Sr. Asst. Professor<span class="af-ja"> / 特任講師（非常勤）</span></span>
-                <a href="https://www.kmd.keio.ac.jp/" target="_blank" rel="noopener" class="af-org">Keio University Graduate School of Media Design</a>
-              </div>
-              <div class="affiliation">
-                <span class="af-role">Founder & CTO</span>
-                <a href="https://commissure.co.jp/" target="_blank" rel="noopener" class="af-org">commissure Inc.</a>
-              </div>
+              {affiliations.map((af) => (
+                <div class="affiliation">
+                  <span class="af-role">
+                    {af.role}
+                    {'roleJa' in af && af.roleJa && (
+                      <span class="af-ja"> / {af.roleJa}</span>
+                    )}
+                  </span>
+                  <a href={af.url} target="_blank" rel="noopener" class="af-org">{af.org}</a>
+                </div>
+              ))}
             </div>
           </div>
         </aside>

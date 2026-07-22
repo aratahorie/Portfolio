@@ -1,4 +1,6 @@
 ---
+import { email, socialLinks } from '../data/contact';
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -7,9 +9,12 @@ const currentYear = new Date().getFullYear();
     <div class="footer-top">
       <span class="footer-name">Arata Horie</span>
       <div class="footer-links">
-        <a href="https://twitter.com/ArataHorie" target="_blank" rel="noopener">X</a>
-        <a href="https://scholar.google.com/citations?user=OFt87kQAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
-        <a href="mailto:a.horie@commissure.co.jp">Email</a>
+        {socialLinks.map((link) => (
+          <a href={link.url} target="_blank" rel="noopener">
+            {'shortLabel' in link ? link.shortLabel : link.label}
+          </a>
+        ))}
+        <a href={`mailto:${email}`}>Email</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -44,6 +49,7 @@ const currentYear = new Date().getFullYear();
 
   .footer-links {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space-lg);
   }
 
