@@ -7,7 +7,7 @@ image: "/images/research/audiohapticdiffusion.png"
 citations:
   - "Kotani, A., & Horie, A. (2026). AudioHapticDiffusion: Synchronized Audio-Haptic Generation via Shared Latent Space. In EuroHaptics 2026. Springer. (Co-first author)"
 collaborators:
-  - "Arata Kotani"
+  - "commissure Inc."
 links:
   - label: "PDF"
     url: "/papers/audiohapticdiffusion.pdf"

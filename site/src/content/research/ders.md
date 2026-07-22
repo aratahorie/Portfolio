@@ -7,8 +7,7 @@ image: "/images/research/ders.png"
 citations:
   - "Kotani, A., Shimobayashi, H., & Horie, A. (2026). DERS: Distribution of Eccentric Rotational Skin-stretch induce Directional Force Sensation on a Wrist. In EuroHaptics 2026. Springer. (Co-first author)"
 collaborators:
-  - "Arata Kotani"
-  - "Hideki Shimobayashi"
+  - "commissure Inc."
 links:
   - label: "PDF"
     url: "/papers/ders.pdf"
