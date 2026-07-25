@@ -1,5 +1,15 @@
 [
   {
+    "key": "higashi2026experience",
+    "type": "demo",
+    "title": "Experience Sharing Studio: An Immersive Platform for Spatio-Temporal Recording and Playback of Embodied Multisensory Memory",
+    "authors": "Higashi, H., Zhu, Y., Kobayashi, K., Tsujita, K., Morita, J., Koizumi, E., Shen, J., Sousa, M., Horie, A., Yoshida, T., Minamizawa, K.",
+    "venue": "ACM SIGGRAPH 2026 Emerging Technologies",
+    "year": 2026,
+    "doi": "10.1145/3799826.3812425",
+    "url": "https://doi.org/10.1145/3799826.3812425"
+  },
+  {
     "key": "kotani2026audiohapticdiffusion",
     "type": "conference",
     "title": "AudioHapticDiffusion: Synchronized Audio-Haptic Generation via Shared Latent Space",
@@ -16,6 +26,16 @@
     "venue": "EuroHaptics 2026",
     "year": 2026,
     "url": "/papers/ders.pdf"
+  },
+  {
+    "key": "shimobayashi2026emomime",
+    "type": "demo",
+    "title": "EmoMime: Augmenting Social Behavior and Self-Expression via Wearable Robotic Limbs",
+    "authors": "Shimobayashi, H., Sasaki, T., Hirose, M., Horie, A., Inami, M.",
+    "venue": "ACM SIGGRAPH 2026 Emerging Technologies",
+    "year": 2026,
+    "doi": "10.1145/3799826.3812431",
+    "url": "https://doi.org/10.1145/3799826.3812431"
   },
   {
     "key": "emiri2025piano",
