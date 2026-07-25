@@ -76,5 +76,21 @@
   },
   "horie2018buttock": {
     "firstAuthor": true
+  },
+  "horie2018robomech": {
+    "firstAuthor": true,
+    "award": "ROBOMECH Award"
+  },
+  "horie2018SI": {
+    "firstAuthor": true,
+    "award": "Excellent Presentation Award"
+  },
+  "horie2018VRSJ": {
+    "firstAuthor": true,
+    "award": "Young Researcher's Award"
+  },
+  "horie2017SI": {
+    "firstAuthor": true,
+    "award": "Excellent Presentation Award & Young Researcher's Award"
   }
 }

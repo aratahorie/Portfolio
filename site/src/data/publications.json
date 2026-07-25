@@ -275,7 +275,9 @@
     "title": "Induction of Acceleration Sensation of Self-motion by Presenting Shear Force to Buttocks",
     "authors": "Horie, A., Nagano, H., Konyo, M., Tadokoro, S.",
     "venue": "Robotics Mechatronics Conference 2018",
-    "year": 2018
+    "year": 2018,
+    "firstAuthor": true,
+    "award": "ROBOMECH Award"
   },
   {
     "key": "horie2018SI",
@@ -283,7 +285,19 @@
     "title": "2-DoF Buttock Skin Stretch for Inducing Acceleration Perseption of Self-motion",
     "authors": "Horie, A., Nomura, A., Tadakuma, K., Nagano, H., Konyo, M., Tadokoro, S.",
     "venue": "SICE System Integration",
-    "year": 2018
+    "year": 2018,
+    "firstAuthor": true,
+    "award": "Excellent Presentation Award"
+  },
+  {
+    "key": "horie2018VRSJ",
+    "type": "conference",
+    "title": "Presenting Pushing Up Feeling from the Seat by Buttocks Skin Stretch",
+    "authors": "Horie, A., Nagano, H., Konyo, M., Tadokoro, S.",
+    "venue": "Annual Conference of the Virtual Reality Society of Japan",
+    "year": 2018,
+    "firstAuthor": true,
+    "award": "Young Researcher's Award"
   },
   {
     "key": "horie2017SI",
@@ -291,20 +305,14 @@
     "title": "-2nd Report- Sliding Direction and Speed Presentation Combining High Frequency and Asymmetric Vibration",
     "authors": "Horie, A., Nagano, H., Konyo, M., Tadokoro, S.",
     "venue": "SICE System Integration",
-    "year": 2017
+    "year": 2017,
+    "firstAuthor": true,
+    "award": "Excellent Presentation Award & Young Researcher's Award"
   },
   {
     "key": "horie2017VRSJ",
     "type": "conference",
     "title": "Sliding Direction and Speed Presentation Combining High Frequency and Asymmetric Vibration",
-    "authors": "Horie, A., Nagano, H., Konyo, M., Tadokoro, S.",
-    "venue": "Annual Conference of the Virtual Reality Society of Japan",
-    "year": 2017
-  },
-  {
-    "key": "horie2018VRSJ",
-    "type": "conference",
-    "title": "Presenting Pushing Up Feeling from the Seat by Buttocks Skin Stretch",
     "authors": "Horie, A., Nagano, H., Konyo, M., Tadokoro, S.",
     "venue": "Annual Conference of the Virtual Reality Society of Japan",
     "year": 2017

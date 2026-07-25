@@ -4,6 +4,7 @@
  */
 
 export const awards = [
+  { year: 2026, title: "Audience Choice Award", venue: "SIGGRAPH 2026 Emerging Technologies" },
   { year: 2025, title: "Best Paper Award", venue: "CHI 2025" },
   { year: 2025, title: "Best Demo Award", venue: "SIGGRAPH Asia 2025 Emerging Technologies" },
   { year: 2024, title: "Official Selection for Laval Virtual", venue: "SIGGRAPH 2024 Emerging Technologies" },
