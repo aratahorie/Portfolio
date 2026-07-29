@@ -16,16 +16,18 @@
     "authors": "Kotani, A., Horie, A.",
     "venue": "EuroHaptics 2026",
     "year": 2026,
-    "url": "/papers/audiohapticdiffusion.pdf"
+    "doi": "10.1007/978-3-032-32230-2_12",
+    "url": "https://doi.org/10.1007/978-3-032-32230-2_12"
   },
   {
     "key": "kotani2026ders",
     "type": "conference",
-    "title": "DERS: Distribution of Eccentric Rotational Skin-stretch induce Directional Force Sensation on a Wrist",
+    "title": "DERS: Distribution of Eccentric Rotational Skin-Stretch Induce Directional Force Sensation on a Wrist",
     "authors": "Kotani, A., Shimobayashi, H., Horie, A.",
     "venue": "EuroHaptics 2026",
     "year": 2026,
-    "url": "/papers/ders.pdf"
+    "doi": "10.1007/978-3-032-32230-2_19",
+    "url": "https://doi.org/10.1007/978-3-032-32230-2_19"
   },
   {
     "key": "shimobayashi2026emomime",

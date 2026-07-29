@@ -1,14 +1,16 @@
 ---
 title: "DERS"
-subtitle: "Distribution of Eccentric Rotational Skin-stretch induce Directional Force Sensation on a Wrist"
+subtitle: "Distribution of Eccentric Rotational Skin-Stretch Induce Directional Force Sensation on a Wrist"
 date: "2026.07"
 category: "Research"
 image: "/images/research/ders.png"
 citations:
-  - "Kotani, A., Shimobayashi, H., & Horie, A. (2026). DERS: Distribution of Eccentric Rotational Skin-stretch induce Directional Force Sensation on a Wrist. In EuroHaptics 2026. Springer. (Co-first author)"
+  - "Kotani, A., Shimobayashi, H., & Horie, A. (2026). DERS: Distribution of Eccentric Rotational Skin-Stretch Induce Directional Force Sensation on a Wrist. In: EuroHaptics 2026. LNCS, vol 16593, pp. 249–258. Springer. https://doi.org/10.1007/978-3-032-32230-2_19 (Co-first author)"
 collaborators:
   - "commissure Inc."
 links:
+  - label: "Springer"
+    url: "https://doi.org/10.1007/978-3-032-32230-2_19"
   - label: "PDF"
     url: "/papers/ders.pdf"
 ---
