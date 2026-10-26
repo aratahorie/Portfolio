@@ -21,6 +21,7 @@ const TYPE_MAP = {
   article: 'journal',
   inproceedings: 'conference',
   incollection: 'demo',
+  techreport: 'report',
 };
 
 // ── Parse BibTeX ──
@@ -118,6 +119,11 @@ function extractVenue(fields, bibType) {
     }
     if (fields.pages) venue += `, ${cleanTeX(fields.pages)}`;
     return venue;
+  }
+  if (bibType === 'techreport') {
+    const kind = cleanTeX(fields.type || 'Technical Report');
+    const institution = cleanTeX(fields.institution || '');
+    return institution ? `${kind}, ${institution}` : kind;
   }
   // Fall back to series or location if booktitle is missing
   const booktitle = cleanTeX(fields.booktitle || '');

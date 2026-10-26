@@ -24,7 +24,8 @@
 |---|---|
 | `@article` | Journal (J) |
 | `@inproceedings` | Conference (C) |
-| `@misc` | Conference (C) |
+| `@incollection` | Demo (D) |
+| `@techreport` | Report (R)（White paper など。`type` フィールドが会場名の先頭に表示されます） |
 
 > **Note:** Demo や Emerging Tech は `@inproceedings` で登録し、次のステップで `type` を上書きします。
 

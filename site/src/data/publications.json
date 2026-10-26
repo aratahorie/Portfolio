@@ -41,6 +41,16 @@
     "url": "https://doi.org/10.1145/3799826.3812431"
   },
   {
+    "key": "barbareschi2025moving",
+    "type": "report",
+    "title": "Moving Forward with Mediated Social Touch - a Multidisciplinary and Multicultural Perspective: A White Paper Proposing Considerations from Technical, Social and Psychophysical Disciplines for Technology-Mediated Touch Interactions Encompassing German and Japanese Contexts",
+    "authors": "Barbareschi, G., Shen, X., Ju, Y., Compagna, D., Flemisch, F. O., Hashiura, K., Ho, H., Horie, A., Inukai, K., Kim, J., Krämer, N., Kuhara, T., Martin, S., Mueller, S. M., Murata, A., Oberfell, G., Paterson, M., Shibasaki, M., Spiegel, A., Spooden, C., Stoff, H., Sumida, R., Tanaka, Y., Wakisaka, S., Watanabe, J., Wertel, J., Kottmann, N., Minamizawa, K., Yamamura, S.",
+    "venue": "White Paper, RWTH Aachen University",
+    "year": 2025,
+    "doi": "10.18154/RWTH-2025-03151",
+    "url": "https://doi.org/10.18154/RWTH-2025-03151"
+  },
+  {
     "key": "emiri2025piano",
     "type": "conference",
     "title": "Piano Duo: Haptic Sharing System Supports Two-Piano Practice",

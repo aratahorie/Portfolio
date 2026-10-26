@@ -7,7 +7,7 @@ import publicationsData from '../data/publications.json';
 
 interface Publication {
   key: string;
-  type: 'journal' | 'conference' | 'demo';
+  type: 'journal' | 'conference' | 'demo' | 'report';
   title: string;
   authors: string;
   venue: string;
@@ -53,7 +53,7 @@ const demos = publications.filter(p => p.type === 'demo');
             {byYear(year).map(pub => (
               <div class="pub-item">
                 <div class="pub-type-badge" data-type={pub.type}>
-                  {pub.type === 'journal' ? 'J' : pub.type === 'conference' ? 'C' : 'D'}
+                  {pub.type === 'journal' ? 'J' : pub.type === 'conference' ? 'C' : pub.type === 'report' ? 'R' : 'D'}
                 </div>
                 <div class="pub-content">
                   <h3 class="pub-title">
@@ -230,6 +230,12 @@ const demos = publications.filter(p => p.type === 'demo');
     background: #f0efe8;
     color: #7a7560;
     border: 1px solid #dedbd0;
+  }
+
+  .pub-type-badge[data-type="report"] {
+    background: #f1eef5;
+    color: #6b5a80;
+    border: 1px solid #ddd5e6;
   }
 
   .pub-content {
